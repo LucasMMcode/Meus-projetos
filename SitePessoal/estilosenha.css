@@ -1,0 +1,33 @@
+.container{
+    width: 50%;
+    margin: 3rem auto;
+}
+#loginForm{
+    background: #FFF;
+    padding: 2rem;
+}
+#loginForm h2{
+    text-align: center;
+}
+#loginForm label{
+    display: block;
+}
+#loginForm input{
+    padding: 5px;
+}
+#loginForm input[type=text]{
+    width: 95%;
+}
+#loginForm #password
+{
+    width: 75%;
+}
+.button{
+    background: #eee;
+    border: 1px solid #999;
+    cursor: pointer;
+    padding: 6px !important;
+}
+.button:hover{
+    background: #ddd;
+}

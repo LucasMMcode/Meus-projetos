@@ -1,0 +1,126 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+header {
+    background: #5CE1E6;
+    padding: 10px 0;
+}
+
+.caixa {
+    position: relative;
+    width: 940px;
+    margin: 0 auto;
+}
+
+.logo{
+	display: inline-grid;
+	width: fit-content;
+	text-align: left;
+	font-size: 20px;
+    text-transform: uppercase;
+}
+
+.logo a{
+	text-decoration: none;
+	color: #000000;
+}
+
+nav {
+    position: absolute;
+    top: 30px;
+    right: 160px;
+}
+
+nav li {
+    display: inline-block;
+    margin: 0 0 0 15px;
+	width: 100px;
+	vertical-align:middle;
+}
+
+nav a {
+    text-transform: uppercase;
+    color: #000000;
+    font-weight: bold;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: #C78C19;
+    text-decoration: underline;
+}
+
+footer {
+    background:black;
+    padding: 40px 0;
+}
+
+.copyright {
+    color: #FFFFFF;
+    font-size: 13px;
+    margin: 20px 0 0;
+	font-weight: bold;
+}
+
+thead {
+	background: #555555;
+	color: white;
+	font-weight: bold;
+}
+
+/*css da página inicial*/
+main{	
+	background-size: 100%;
+	background: url(imagens/fundo.png);
+}
+
+.sobretxt{
+	text-align: center;
+	padding: 103px 280px;
+	font-size: 20px;
+	background: none;
+}
+
+.h1main{
+ text-align: center;
+}
+
+.jogos{
+	margin: 20px 0px 10px 275px;
+}
+
+.nomejogo{
+	margin-bottom: 20px;
+}
+
+.mainescola{
+	font-size: 20px;
+}
+
+.mainescola td{
+	padding-left: 25px;
+}
+
+.rodape{
+	color:white;
+	padding-bottom: 2px ;
+}
+
+footer div{
+	display: table;
+}
+
+footer div div{
+	display: table-row;
+}
+
+footer div div div{
+	display: table-cell;
+	padding-left:50px;
+}
+
+footer div div div div{
+	display: table-cell;
+}
