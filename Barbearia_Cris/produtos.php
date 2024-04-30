@@ -1,5 +1,5 @@
 <?php
-include "cabecalho.inc"
+include "includes/cabecalho.inc"
 ?>
 
         <main>
@@ -26,5 +26,5 @@ include "cabecalho.inc"
         </main>
 
 <?php
-include "rodape.inc"
+include "includes/rodape.inc"
 ?>

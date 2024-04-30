@@ -1,63 +1,30 @@
-<main>
-    <form style="padding-left: 30px;">
-            <label for="nomesobrenome"> Nome e sobrenome </label>
-            <input class="input-padrão" type="text" id="nomesobrenome" required>
+<!DOCTYPE html>
+<html lang='pt-br' >
+    <head>
+        <meta charset='UTF-8'>
+        <title>Agendamento - Barbearia</title>
 
-            <label for="email"> Email </label>
-            <input class="input-padrão" type="email" id="email" required placeholder="seuemail@dominio.com">
-            
-            <label for="telefone"> Telefone </label>
-            <input class="input-padrão" type="tel" id="telefone" required placeholder="(XX) XXXXX-XXXX"> 
+        <link rel='stylesheet' href='Reset_css.css'>
+        <link rel='stylesheet' href='style.css'>
+    </head>
 
-            <label for="mensagem"> Mensagem </label>
-            <textarea class="input-padrão" cols="70" rows="10" id="mensagem" required> </textarea>
-
-            <fieldset>
-                <legend> Como Prefere nosso contato? </legend>
-                <label class="radio" for="radio-email"> <input class="radio" type="radio" name="contato" value="email" id="radio-email" > Email </label>
-
-                <label class="radio" for="radio-telefone"> <input class="radio" type="radio" name="contato" value="email" id="radio-telefone"> Telefone </label>
-
-                <label class="radio" for="radio-whatsapp"> <input class="radio" type="radio" name="contato" value="email" id="radio-whatsapp" checked >Whatsapp </label>
-            </fieldset>
-
-            <fieldset>
-                <legend> Qual Horário prefere ser atendido </legend>
-                <select>
-                    <option> Manhã </option>
-                    <option> Tarde </option>
-                    <option> Noite </option>   
-                </select>
-            </fieldset>
-
-
-
-            <label class="checkbox"> <input type="checkbox" checked> Gostaria de receber nossas novidades por email? </label>
-
-            <input class="enviar" type="submit" value="Enviar Formulário">
+    <body class='login'>
+    <div class='page'>
+        <form method='POST' class='formLogin'>
+            <h1>Criar conta</h1>
+            <p>Digite os seus dados de acesso no campo abaixo.</p>
+            <label for='Nome'>Nome</label>
+            <input type='text' placeholder='Digite seu Nome' autofocus='true' />
+            <label for='sobrenome'>Sobrenome</label>
+            <input type='text' placeholder='Digite seu Sobrenome' autofocus='true' />
+            <label for='Telefone'>Telefone</label>
+            <input type='number' placeholder='Digite seu Telefone' autofocus='true' />
+            <label for='email'>E-mail</label>
+            <input type='email' placeholder='Digite seu e-mail' autofocus='true' />
+            <label for='password'>Senha</label>
+            <input type='password' placeholder='Digite seu e-mail' />
+            <a href='/'>Esqueci minha senha</a>
+            <input type='submit' value='Acessar' class='btn' />
+            <a href='login.php'>Possui conta?</a>
         </form>
-
-        <table>
-            <thead>
-                <tr>
-                    <th>Dia</th>
-                    <th>Horrários</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Segunda</td>
-                    <td> 8h ~ 20h </td>
-                </tr>
-                <tr>
-                    <td>Quarta</td>
-                    <td> 8h ~ 20h </td>
-                </tr>
-                <tr>
-                    <td>Sexta</td>
-                    <td> 8h ~ 20h </td>
-            </tr>
-            </tbody>
-        </table>
-
-    </main>
+    </div>"
