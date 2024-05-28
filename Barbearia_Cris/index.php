@@ -1,5 +1,8 @@
 <?php
-include "includes/cabecalho.inc"
+include "includes/cabecalho.inc";
+include "codlogin.php";
+include "codcadastro.php";
+echo $GLOBALS['senha']
 ?>
 	<main>
 		<section class="principal">
