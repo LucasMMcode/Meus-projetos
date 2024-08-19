@@ -15,13 +15,14 @@
             
             if($senha=="lucas01lo"){header("Location: index1.php");}
             else{header("Location: index2.php");}
-        }  
+        }
         else{  
             echo  '<script>
                         window.location.href = "login.php";
                         alert("Login failed. Invalid email or password! ")
                     </script>';
-        }     
+        }
+        
     }
 
     ?>

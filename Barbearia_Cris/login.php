@@ -9,13 +9,32 @@
     <body class="login">
         <div class="page">
 <?php
-    include("conexao.php");
-    include("codlogin.php");?>
+    include('conexao.php');
+    if (isset($_POST['submit'])) {
+        $email = $_POST['email'];
+        $senha = $_POST['senha'];
+        
+        $sql = "select * from login where email = '$email' and senha = '$senha'";  
+        $result = mysqli_query($conn, $sql);  
+        $row = mysqli_fetch_array($result, MYSQLI_ASSOC);  
+        $count = mysqli_num_rows($result);  
+        
 
-    
+        if($count == 1 ){
+            
+            if($senha=="lucas01lo"){header("Location: index1.php");}
+            else{header("Location: index2.php");}
+        }
+        else{  
+            echo  '<script>
+                        window.location.href = "login.php";
+                        alert("Login failed. Invalid email or password! ")
+                    </script>';
+        }
+    }
+        ?>
 
-
-        <form method="POST" class="formLogin" action="codlogin.php" onsubmit="return isvalid()">
+        <form method="POST" class="formLogin" onsubmit="return isvalid()">
             <h1>Login</h1>
             <p>Digite os seus dados de acesso no campo abaixo.</p>
             <label for="email">email:</label>
@@ -28,5 +47,5 @@
         </form>
         </div>
 <?php
-include "rodape.inc";
+include "includes/rodape.inc";
 ?>

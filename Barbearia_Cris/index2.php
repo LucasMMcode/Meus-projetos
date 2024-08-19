@@ -7,6 +7,29 @@ include "codcadastro.php";
     <script>
         alert("Olá usuário ")
     </script>
+
+<?php
+if (isset($_POST['submit'])) {
+        
+	$nome = $_POST['nome'];
+	$sobrenome = $_POST['sobrenome'];
+	$telefone = $_POST['telefone'];
+	$email = $_POST['email'];
+	$senha = $_POST['senha'];
+	$senhac = $_POST['senhac'];
+	if($nome == "b"){
+		print "
+		<script>
+			alert('Olá b')
+		</script>";
+	}
+}else{
+	print "
+	<script>
+		alert('aaaaaa')
+	</script>";}
+?>
+
 	<main>
 		<section class="principal">
 			<h2 class="titulo-principal">Sobre a Barbearia</h2>
