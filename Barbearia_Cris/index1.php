@@ -15,21 +15,21 @@ if (isset($_POST['submit'])) {
 		<script>
 			alert('Olá usuario')
 		</script>";}
-		$sql = "SELECT * FROM login where Email is $email";
+		$sql = "SELECT `Nome`, `Email`, `Senha`, `Telefone` FROM `login` WHERE Email = '$email';";
 		$result = $conn->query($sql);
 		if ($result->num_rows > 0) {
 			while ($row = $result->fetch_assoc()) {
-				print "
-				<script>
-					alert(
-					  Nome: " . $row["Nome"].
+				echo "Nome: " . $row["Nome"].
 				"<br> Email: " . $row["Email"]. 
 				"<br> Senha: " . $row["Senha"].
 				"<br> Telefone: " . $row["Telefone"]. 
-				"<br><br>)
-				</script>";
+				"<br><br>";
 			}
-		}
+		}else {
+			print "
+			<script>
+				alert('aaaaa')
+			</script>";}
 }
 ?>
 
