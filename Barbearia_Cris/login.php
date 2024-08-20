@@ -17,13 +17,9 @@
         $sql = "select * from login where email = '$email' and senha = '$senha'";  
         $result = mysqli_query($conn, $sql);  
         $row = mysqli_fetch_array($result, MYSQLI_ASSOC);  
-        $count = mysqli_num_rows($result);  
-        
+        $count = mysqli_num_rows($result);
 
         if($count == 1 ){
-            
-            if($senha=="lucas01lo"){header("Location: index1.php");}
-            else{header("Location: index2.php");}
         }
         else{  
             echo  '<script>
@@ -34,13 +30,13 @@
     }
         ?>
 
-        <form method="POST" class="formLogin" onsubmit="return isvalid()">
+        <form method="POST" class="formLogin" action="index1.php" onsubmit="return isvalid()">
             <h1>Login</h1>
             <p>Digite os seus dados de acesso no campo abaixo.</p>
             <label for="email">email:</label>
-            <input type="text" name="email" placeholder="Digite seu email" autofocus="true" />
+            <input type="text" name="email" placeholder="Digite seu email" autofocus="true" required/>
             <label for="senha">Senha</label>
-            <input type="password" name="senha"placeholder="Digite seua senha" />
+            <input type="password" name="senha"placeholder="Digite seua senha" required/>
             <a href="/">Esqueci minha senha</a>
             <input type="submit" value="Entrar" class="btn" name = "submit"/>
             <a href="cadastro.php">Não possui conta?</a>

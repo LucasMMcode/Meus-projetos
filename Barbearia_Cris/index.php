@@ -1,7 +1,5 @@
 <?php
 include "includes/cabecalho.inc";
-include "codlogin.php";
-include "codcadastro.php";
 ?>
 	<main>
 		<section class="principal">
