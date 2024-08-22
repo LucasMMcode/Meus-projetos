@@ -10,11 +10,11 @@
         $senha = $_POST['senha'];
         $senhac = $_POST['senhac'];
 
-        $sql2 = "select * from login where email = '$email'";
+        $sql2 = "select * from usuario where email = '$email'";
         $result2 = mysqli_query($conn, $sql2);  
         $row = mysqli_fetch_array($result2, MYSQLI_ASSOC);  
         $count = mysqli_num_rows($result2);  
-        $sql = "INSERT INTO login VALUES (\"$nome\",\"$sobrenome\",\"$telefone\",\"$email\",\"$senha\",2);";
+        $sql = "INSERT INTO usuario VALUES (\"$nome\",\"$sobrenome\",\"$telefone\",\"$email\",\"$senha\",2);";
         $result = mysqli_query($conn, $sql);  
         if($senha==$senhac){
             if($count==1){

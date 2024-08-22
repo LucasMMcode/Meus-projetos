@@ -14,7 +14,7 @@
         $email = $_POST['email'];
         $senha = $_POST['senha'];
         
-        $sql = "select * from login where email = '$email' and senha = '$senha'";  
+        $sql = "select * from usuario where email = '$email' and senha = '$senha'";  
         $result = mysqli_query($conn, $sql);  
         $row = mysqli_fetch_array($result, MYSQLI_ASSOC);  
         $count = mysqli_num_rows($result);

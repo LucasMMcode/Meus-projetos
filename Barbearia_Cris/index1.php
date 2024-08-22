@@ -1,21 +1,10 @@
 <?php
-include "includes/cabecalho.inc";
 include "conexao.php";
 if (isset($_POST['submit'])) {
         
 	$email = $_POST['email'];
 	$senha = $_POST['senha'];
-	if($email == "lucas.m.magedanz@gmail.com"){
-		print "
-		<script>
-			alert('Olá adm')
-		</script>";
-	}else{
-		print "
-		<script>
-			alert('Olá usuario')
-		</script>";}
-		$sql = "SELECT `Nome`, `Email`, `Senha`, `Telefone` FROM `login` WHERE Email = '$email';";
+		$sql = "SELECT `Nome`, `Email`, `Senha`, `Telefone` FROM `usuario` WHERE Email = '$email';";
 		$result = $conn->query($sql);
 		if ($result->num_rows > 0) {
 			while ($row = $result->fetch_assoc()) {
@@ -26,11 +15,23 @@ if (isset($_POST['submit'])) {
 				"<br><br>";
 			}
 		}else {
+            echo  '<script>
+                        window.location.href = "login.php";
+                        alert("Login failed. Invalid email or password! ")
+                    </script>';
+		}
+		if($email == "lucas.m.magedanz@gmail.com"){
 			print "
 			<script>
-				alert('aaaaa')
+				alert('Olá adm')
+			</script>";
+		}else{
+			print "
+			<script>
+				alert('Olá usuario')
 			</script>";}
 }
+include "includes/cabecalho.inc";
 ?>
 
 	<main>

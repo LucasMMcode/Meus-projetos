@@ -39,5 +39,5 @@
 
 
 <?php
-include "rodape.inc"
+include "includes/rodape.inc"
 ?>

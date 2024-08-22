@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 29/05/2024 às 14:53
+-- Tempo de geração: 22/08/2024 às 17:24
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.0.28
 
@@ -24,10 +24,10 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `login`
+-- Estrutura para tabela `usuario`
 --
 
-CREATE TABLE `login` (
+CREATE TABLE `usuario` (
   `Nome` varchar(15) NOT NULL,
   `Sobrenome` varchar(50) NOT NULL,
   `Telefone` bigint(13) NOT NULL,
@@ -37,11 +37,13 @@ CREATE TABLE `login` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `login`
+-- Despejando dados para a tabela `usuario`
 --
 
-INSERT INTO `login` (`Nome`, `Sobrenome`, `Telefone`, `Email`, `Senha`, `Classe`) VALUES
+INSERT INTO `usuario` (`Nome`, `Sobrenome`, `Telefone`, `Email`, `Senha`, `Classe`) VALUES
 ('b', 'b', 2, 'b@b', 'b', 2),
+('c', 'cc', 3, 'c@c', 'c', 2),
+('d', 'd', 4, 'd@d', 'd', 2),
 ('Lucas', 'Mitmann Magedanz', 5554984005750, 'lucas.m.magedanz@gmail.com', 'Lucas01lo', 1);
 
 --
@@ -49,9 +51,9 @@ INSERT INTO `login` (`Nome`, `Sobrenome`, `Telefone`, `Email`, `Senha`, `Classe`
 --
 
 --
--- Índices de tabela `login`
+-- Índices de tabela `usuario`
 --
-ALTER TABLE `login`
+ALTER TABLE `usuario`
   ADD PRIMARY KEY (`Email`);
 COMMIT;
 
