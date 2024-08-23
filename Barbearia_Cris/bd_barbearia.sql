@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 22/08/2024 às 17:24
+-- Tempo de geração: 23/08/2024 às 15:06
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.0.28
 
@@ -24,6 +24,25 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Estrutura para tabela `classes`
+--
+
+CREATE TABLE `classes` (
+  `Classeid` int(1) NOT NULL,
+  `nome` varchar(10) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `classes`
+--
+
+INSERT INTO `classes` (`Classeid`, `nome`) VALUES
+(1, 'ADM'),
+(2, 'Usuario');
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura para tabela `usuario`
 --
 
@@ -33,14 +52,14 @@ CREATE TABLE `usuario` (
   `Telefone` bigint(13) NOT NULL,
   `Email` varchar(30) NOT NULL,
   `Senha` varchar(20) NOT NULL,
-  `Classe` int(1) NOT NULL
+  `Classeid` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Despejando dados para a tabela `usuario`
 --
 
-INSERT INTO `usuario` (`Nome`, `Sobrenome`, `Telefone`, `Email`, `Senha`, `Classe`) VALUES
+INSERT INTO `usuario` (`Nome`, `Sobrenome`, `Telefone`, `Email`, `Senha`, `Classeid`) VALUES
 ('b', 'b', 2, 'b@b', 'b', 2),
 ('c', 'cc', 3, 'c@c', 'c', 2),
 ('d', 'd', 4, 'd@d', 'd', 2),
@@ -51,10 +70,27 @@ INSERT INTO `usuario` (`Nome`, `Sobrenome`, `Telefone`, `Email`, `Senha`, `Class
 --
 
 --
+-- Índices de tabela `classes`
+--
+ALTER TABLE `classes`
+  ADD PRIMARY KEY (`Classeid`);
+
+--
 -- Índices de tabela `usuario`
 --
 ALTER TABLE `usuario`
-  ADD PRIMARY KEY (`Email`);
+  ADD PRIMARY KEY (`Email`),
+  ADD KEY `fk_id` (`Classeid`);
+
+--
+-- Restrições para tabelas despejadas
+--
+
+--
+-- Restrições para tabelas `usuario`
+--
+ALTER TABLE `usuario`
+  ADD CONSTRAINT `fk_id` FOREIGN KEY (`Classeid`) REFERENCES `classes` (`Classeid`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
