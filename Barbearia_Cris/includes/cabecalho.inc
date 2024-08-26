@@ -9,12 +9,17 @@
     </head>
     <body>
         <header>
-        <div class="loginimg"><a href="login.php"><img src="img/login.png" width ="60px""></a></div>
+        <div class="loginimg"><a href="login.php"><img src="<?php if($nome==null){echo'img/login.png';}else{echo'img/login2.png';}?>" width ="60px""></a></div>
             <div class="caixa">
                 <h1 ><img src="img/bg.jpg" alt="logo da Barbearia Alra" width="178px"></h1>
 
                 <nav>
     	            <ul>
+						<?php
+                        if($classe==1){
+                            echo'<li><a href="?">Tabela horários</a></li>';
+                            }else{}
+                            ?>
     	                <li><a href="index.php">Home</a></li>
     	                <li><a href="produtos.php">Produtos</a></li>
     	                <li><a href="contato.php">Contato</a></li>

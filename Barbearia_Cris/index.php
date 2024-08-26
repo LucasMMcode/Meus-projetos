@@ -1,4 +1,6 @@
 <?php
+$classe = 0;
+$nome = null;
 include "includes/cabecalho.inc";
 ?>
 	<main>

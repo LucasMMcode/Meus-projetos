@@ -14,13 +14,12 @@
     </head>
     <body>
         <header>
-        <div class="loginimg"><a href="login.php"><img src="img/login.png" width ="60px"></a></div>
+        <div class="loginimg"><a href="<?php if($nome==1){echo'login.php'}else{echo'login2.php'}?>"><img src="img/login.png" width ="60px"></a></div>
             <div class="caixa">
                 <h1 ><img src="img/bg.jpg" alt="logo da Barbearia Alra" width="178px"></h1>
 
                 <nav>
     	            <ul>
-    	                <li><a href="?">Tabela horários</a></li>
     	                <li><a href="index.php">Home</a></li>
     	                <li><a href="produtos.php">Produtos</a></li>
     	                <li><a href="contato.php">Contato</a></li>

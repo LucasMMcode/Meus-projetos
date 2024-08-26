@@ -4,15 +4,23 @@ if (isset($_POST['submit'])) {
         
 	$email = $_POST['email'];
 	$senha = $_POST['senha'];
-		$sql = "SELECT `Nome`, `Email`, `Senha`, `Telefone` FROM `usuario` WHERE Email = '$email';";
+		$sql = "SELECT * FROM `usuario` WHERE Email = '$email';";
 		$result = $conn->query($sql);
 		if ($result->num_rows > 0) {
-			while ($row = $result->fetch_assoc()) {
-				echo "Nome: " . $row["Nome"].
+			while ($row = $result->fetch_assoc()) {	
+				/*echo "Nome: " . $row["Nome"].
+				"<br> Sobrenome: " . $row["Sobrenome"]. 
+				"<br> Telefone: " . $row["Telefone"]. 
 				"<br> Email: " . $row["Email"]. 
 				"<br> Senha: " . $row["Senha"].
-				"<br> Telefone: " . $row["Telefone"]. 
-				"<br><br>";
+				"<br> Classeid: " . $row["Classeid"].
+				"<br> <br>";*/
+				$nome = $row["Nome"];
+				$sobrenome =$row["Sobrenome"];
+				$telefone =$row["Telefone"];
+				$email =$row["Email"];
+				$senha =$row["Senha"];
+				$classe = $row["Classeid"];
 			}
 		}else {
             echo  '<script>
@@ -20,7 +28,7 @@ if (isset($_POST['submit'])) {
                         alert("Login failed. Invalid email or password! ")
                     </script>';
 		}
-		if($email == "lucas.m.magedanz@gmail.com"){
+		if($classe == "1"){
 			print "
 			<script>
 				alert('Olá adm')
@@ -66,6 +74,7 @@ include "includes/cabecalho.inc";
 					<li class="itens">Profissionais Qualificados</li>
 					<li class="itens">Pontualida</li>
 					<li class="itens">Limpeza</li>
+					<li class="itens"><?php echo "$nome "?></li>
 				</ul><img class="imagem-beneficios" src="img/Beneficios.jpg">
 			</div>
 			<div class="video"> <iframe width="100%" height="315" src="https://www.youtube.com/embed/wcVVXUV0YUY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> </div>	
