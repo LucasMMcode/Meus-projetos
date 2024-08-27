@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 23/08/2024 às 15:06
+-- Tempo de geração: 27/08/2024 às 17:23
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.0.28
 
@@ -20,6 +20,32 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `bd_barbearia`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `agendamentos`
+--
+
+CREATE TABLE `agendamentos` (
+  `email` varchar(50) NOT NULL,
+  `dia` date NOT NULL,
+  `hora` time NOT NULL,
+  `descrição` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `agendamentos`
+--
+
+INSERT INTO `agendamentos` (`email`, `dia`, `hora`, `descrição`) VALUES
+('lucas.m.magedanz@gmail.com', '2024-08-27', '00:09:15', 'cortar barba e cabelo'),
+('lucas.m.magedanz@gmail.com', '2024-09-27', '09:15:00', 'cortar barba e cabelo'),
+('lucas.m.magedanz@gmail.com', '2024-09-26', '09:15:00', 'cortar barba e cabelo'),
+('lucas.m.magedanz@gmail.com', '2024-08-26', '09:15:00', 'cortar barba e cabelo'),
+('lucas.m.magedanz@gmail.com', '2025-01-01', '01:58:32', 'cortar barba e cabelo'),
+('lucas.m.magedanz@gmail.com', '2024-08-27', '01:58:32', 'cortar barba e cabelo'),
+('lucas.m.magedanz@gmail.com', '1111-11-11', '11:11:11', 'cortar barba e cabelo');
 
 -- --------------------------------------------------------
 
@@ -70,6 +96,12 @@ INSERT INTO `usuario` (`Nome`, `Sobrenome`, `Telefone`, `Email`, `Senha`, `Class
 --
 
 --
+-- Índices de tabela `agendamentos`
+--
+ALTER TABLE `agendamentos`
+  ADD KEY `email` (`email`);
+
+--
 -- Índices de tabela `classes`
 --
 ALTER TABLE `classes`
@@ -85,6 +117,12 @@ ALTER TABLE `usuario`
 --
 -- Restrições para tabelas despejadas
 --
+
+--
+-- Restrições para tabelas `agendamentos`
+--
+ALTER TABLE `agendamentos`
+  ADD CONSTRAINT `agendamentos_ibfk_1` FOREIGN KEY (`email`) REFERENCES `usuario` (`Email`);
 
 --
 -- Restrições para tabelas `usuario`
