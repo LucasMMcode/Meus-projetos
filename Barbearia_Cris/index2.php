@@ -1,5 +1,5 @@
-<?php
-?>
+<?php if (isset($classe)){$classe = 0;}if( isset($nome)){$nome = null;}?>
+
     
     <script>
         alert("Olá adm ")
@@ -14,7 +14,11 @@
     </head>
     <body>
         <header>
-        <div class="loginimg"><a href="<?php if($nome==1){echo'login.php'}else{echo'login2.php'}?>"><img src="img/login.png" width ="60px"></a></div>
+            <?php
+        if($nome!=null){ print "<p class='loginnome'>"."$nome $sobrenome"."</p>";
+            }?>
+        <div class="loginimg">
+		<a href="<?php if($nome==1){echo'login.php'}else{echo'login2.php'}?>"><img src="img/login.png" width ="60px"></a></div>
             <div class="caixa">
                 <h1 ><img src="img/bg.jpg" alt="logo da Barbearia Alra" width="178px"></h1>
 

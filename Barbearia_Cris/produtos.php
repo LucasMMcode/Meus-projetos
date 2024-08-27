@@ -1,3 +1,4 @@
+<?php $classe = 0;$nome = null;?>
 <?php
 include "includes/cabecalho.inc"
 ?>
