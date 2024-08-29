@@ -1,4 +1,6 @@
 <?php
+$nome = null;
+$classe = 0;
 include "includes/cabecalho.inc";
 ?>
 	<main>
@@ -7,11 +9,7 @@ include "includes/cabecalho.inc";
 
 			<img class="utensilios" src="img/utensilios.jpg" alt="Utensilios de um Barbeiro">
 
-			<p>Localizada no coração da cidade a <strong>Barbearia</strong> traz para o mercado o que há de melhor para o seu cabelo e barba. Fundada em 2019, a Barbearia já é destaque na cidade e conquista novos clientes a cada dia.</p>
-
-			<p id= "missao"><em>Nossa missão é: <strong>"Proporcionar auto-estima e qualidade de vida aos clientes"</strong>.</em></p>
-		
-			<p>Oferecemos profissionais experientes e antenados às mudanças no mundo da moda. O atendimento possui padrão de excelência e agilidade, garantindo qualidade e satisfação dos nossos clientes.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus auctor, sem vitae semper tincidunt, metus augue tincidunt ipsum, et feugiat felis libero molestie felis. Vestibulum sodales dui in turpis volutpat, eget consectetur velit semper. Cras consectetur at lacus vitae facilisis. Ut at magna lobortis, venenatis metus euismod, tempor dui. Nam congue ornare ullamcorper. Nunc tincidunt gravida fermentum. Duis blandit tempor ipsum nec tempus. Sed imperdiet facilisis bibendum. Vestibulum viverra eget odio id dictum. Pellentesque id sem feugiat, tristique nunc eu, molestie tortor. Nunc convallis est sit amet odio sagittis pretium sit amet ut arcu. Nam ullamcorper posuere arcu, sit amet congue augue. Mauris volutpat, augue tempus egestas ultrices, purus augue aliquam augue, eget auctor est mauris ut justo.</p>
 		</section>
 
 		<section class="mapa">
