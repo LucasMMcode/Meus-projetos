@@ -1,6 +1,7 @@
 <?php
 include "conexao.php";
 if (isset($_POST['submit'])) {
+	session_start();
         
 	$email = $_POST['email'];
 	$senha = $_POST['senha'];
@@ -15,20 +16,22 @@ if (isset($_POST['submit'])) {
 				"<br> Senha: " . $row["Senha"].
 				"<br> Classeid: " . $row["Classeid"].
 				"<br> <br>";*/
-				$nome = $row["Nome"];
-				$sobrenome =$row["Sobrenome"];
-				$telefone =$row["Telefone"];
-				$email =$row["Email"];
-				$senha =$row["Senha"];
-				$classe = $row["Classeid"];
+			$_SESSION['nome'] = $row["Nome"];
+			$_SESSION['sobrenome'] =$row["Sobrenome"];
+			$_SESSION['telefone'] =$row["Telefone"];
+			$_SESSION['email'] =$row["Email"];
+			$_SESSION['senha'] =$row["Senha"];
+			$_SESSION['classe'] = $row["Classeid"];
 			}
+			$_SESSION['usuario'] = 'joao123';
+			echo $_SESSION['usuario'];
 		}else {
             echo  '<script>
                         window.location.href = "login.php";
                         alert("Login failed. Invalid email or password! ")
                     </script>';
 		}
-		if($classe == "1"){
+		if($_SESSION['classe'] == "1"){
 			print "
 			<script>
 				alert('Olá adm')

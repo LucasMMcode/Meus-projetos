@@ -15,8 +15,8 @@
     <body>
         <header>
             <?php
-        if($nome!=null){ print "<p class='loginnome'>"."$nome $sobrenome"."</p>";
-            }?>
+        if($_SESSION['nome']!=null){ print "<p class='loginnome'>"."$_SESSION['nome'] $_SESSION['sobrenome']"."</p>";
+		}?>
         <div class="loginimg">
 		<a href="<?php if($nome==1){echo'login.php'}else{echo'login2.php'}?>"><img src="img/login.png" width ="60px"></a></div>
             <div class="caixa">

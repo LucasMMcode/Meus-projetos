@@ -1,6 +1,8 @@
 <?php
+
 $nome = null;
 $classe = 0;
+session_start();
 include "includes/cabecalho.inc";
 ?>
 	<main>

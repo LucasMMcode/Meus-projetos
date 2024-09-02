@@ -17,6 +17,8 @@
             </tr>
 
 <?php
+	session_start();
+echo $_SESSION['usuario'];
 $dataAtual = date("Y-m-d");
 include "conexao.php";
 include "includes/cabecalho.inc";

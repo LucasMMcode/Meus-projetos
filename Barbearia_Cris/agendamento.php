@@ -1,29 +1,25 @@
 <?php
+session_start();
 include "includes/cabecalho.inc"
 ?>
 
 <main>
         <form style="padding-left: 30px;">
                 <label for="nomesobrenome"> Nome e sobrenome </label>
-                <input class="input-padrão" type="text" id="nomesobrenome" required>
+                <input class="input-padrão" type="text" id="nomesobrenome" value="<?php echo $_SESSION['nome']." ".$_SESSION['sobrenome'];?>"required>
 
                 <label for="email"> Email </label>
-                <input class="input-padrão" type="email" id="email" required placeholder="seuemail@dominio.com">
+                <input class="input-padrão" type="email" id="email" required value="<?php echo $_SESSION['email']?>">
                 
                 <label for="telefone"> Telefone </label>
-                <input class="input-padrão" type="tel" id="telefone" required placeholder="(XX) XXXXX-XXXX"> 
+                <input class="input-padrão" type="tel" id="telefone" required value="<?php echo $_SESSION['telefone']?>"> 
 
                 <label for="mensagem"> Mensagem </label>
                 <textarea class="input-padrão" cols="70" rows="10" id="mensagem" required> </textarea>
 
                 <fieldset>
                     <legend> Que dia e horário prefere ser atendido </legend>
-                    <input type="date">
-                    <select>
-                        <option> 8:00 </option>
-                        <option> 8:30 </option>
-                        <option> 9:00 </option>                        
-                    </select>
+                    <input type="date"> <input type="time">
                 </fieldset>
     
                 <br>
