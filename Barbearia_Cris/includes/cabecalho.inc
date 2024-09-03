@@ -26,7 +26,7 @@
                             ?>
     	                <li><a href="index.php">Home</a></li>
     	                <li><a href="produtos.php">Produtos</a></li>
-    	                <li><a href="contato.php">Contato</a></li>
+    	                <li><a href="https://web.whatsapp.com/send?phone=54984005750">Contato</a></li>
     	            </ul>
                 </nav>
             </div>

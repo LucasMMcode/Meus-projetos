@@ -13,19 +13,19 @@ if (isset($_POST['submit'])) {
 		$result = $conn->query($sql);
 		if ($result->num_rows > 0) {
 			while ($row = $result->fetch_assoc()) {	
-				echo "Nome: " . $row["Nome"].
+				/*echo "Nome: " . $row["Nome"].
 				"<br> Sobrenome: " . $row["Sobrenome"]. 
 				"<br> Telefone: " . $row["Telefone"]. 
 				"<br> Email: " . $row["Email"]. 
 				"<br> Senha: " . $row["Senha"].
 				"<br> Classeid: " . $row["Classeid"].
-				"<br> <br>";/*
+				"<br> <br>";*/
 			$_SESSION['nome'] = $row["Nome"];
 			$_SESSION['sobrenome'] =$row["Sobrenome"];
 			$_SESSION['telefone'] =$row["Telefone"];
 			$_SESSION['email'] =$row["Email"];
 			$_SESSION['senha'] =$row["Senha"];
-			$_SESSION['classe'] = $row["Classeid"];*/
+			$_SESSION['classe'] = $row["Classeid"];
 			}
 			$_SESSION['usuario'] = 'joao123';
 			echo $_SESSION['usuario'];
