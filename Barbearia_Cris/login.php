@@ -15,7 +15,9 @@ session_start();
         $email = $_POST['email'];
         $senha = $_POST['senha'];
         
-        $sql = "select * from usuario where email = '$email' and senha = '$senha'";  
+        $sql = "SELECT usuario.Email, usuario.Senha, usuario.Classeid, 
+        cliente.Nome, cliente.Sobrenome, cliente.Telefone 
+        FROM usuario JOIN cliente ON usuario.idcliente = cliente.idcliente WHERE Email = '$email';";  
         $result = mysqli_query($conn, $sql);  
         $row = mysqli_fetch_array($result, MYSQLI_ASSOC);  
         $count = mysqli_num_rows($result);
@@ -31,7 +33,7 @@ session_start();
     }
         ?>
 
-        <form method="POST" class="formLogin" action="index1.php" onsubmit="return isvalid()">
+        <form method="POST" class="formLogin" action="index.php" onsubmit="return isvalid()">
             <h1>Login</h1>
             <p>Digite os seus dados de acesso no campo abaixo.</p>
             <label for="email">email:</label>

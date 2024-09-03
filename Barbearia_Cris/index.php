@@ -1,8 +1,52 @@
 <?php
+include "conexao.php";
 
-$nome = null;
-$classe = 0;
 session_start();
+if (isset($_POST['submit'])) {
+        
+	$email = $_POST['email'];
+	$senha = $_POST['senha'];
+	$sql = "SELECT usuario.Email, usuario.Senha, usuario.Classeid, 
+	cliente.Nome, cliente.Sobrenome, cliente.Telefone 
+	FROM usuario JOIN cliente ON usuario.idcliente = cliente.idcliente WHERE Email = '$email';";
+
+		$result = $conn->query($sql);
+		if ($result->num_rows > 0) {
+			while ($row = $result->fetch_assoc()) {	
+				echo "Nome: " . $row["Nome"].
+				"<br> Sobrenome: " . $row["Sobrenome"]. 
+				"<br> Telefone: " . $row["Telefone"]. 
+				"<br> Email: " . $row["Email"]. 
+				"<br> Senha: " . $row["Senha"].
+				"<br> Classeid: " . $row["Classeid"].
+				"<br> <br>";/*
+			$_SESSION['nome'] = $row["Nome"];
+			$_SESSION['sobrenome'] =$row["Sobrenome"];
+			$_SESSION['telefone'] =$row["Telefone"];
+			$_SESSION['email'] =$row["Email"];
+			$_SESSION['senha'] =$row["Senha"];
+			$_SESSION['classe'] = $row["Classeid"];*/
+			}
+			$_SESSION['usuario'] = 'joao123';
+			echo $_SESSION['usuario'];
+		}
+        else{  
+            echo  '<script>
+                        window.location.href = "login.php";
+                        alert("Login failed. Invalid email or password! ")
+                    </script>';
+        }
+		if($_SESSION['classe'] == "1"){
+			print "
+			<script>
+				alert('Olá adm')
+			</script>";
+		}else{
+			print "
+			<script>
+				alert('Olá usuario')
+			</script>";}
+}
 include "includes/cabecalho.inc";
 ?>
 	<main>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 02/09/2024 às 15:49
+-- Tempo de geração: 03/09/2024 às 17:26
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.0.28
 
@@ -71,28 +71,49 @@ INSERT INTO `classes` (`Classeid`, `nome`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estrutura para tabela `cliente`
+--
+
+CREATE TABLE `cliente` (
+  `idcliente` int(11) NOT NULL,
+  `Nome` varchar(15) NOT NULL,
+  `Sobrenome` varchar(50) NOT NULL,
+  `Telefone` bigint(13) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `cliente`
+--
+
+INSERT INTO `cliente` (`idcliente`, `Nome`, `Sobrenome`, `Telefone`) VALUES
+(1, 'b', 'b', 2),
+(2, 'c', 'cc', 3),
+(3, 'd', 'd', 4),
+(4, 'Lucas', 'Mitmann Magedanz', 5554984005750);
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura para tabela `usuario`
 --
 
 CREATE TABLE `usuario` (
   `idusuario` int(11) NOT NULL,
-  `Nome` varchar(15) NOT NULL,
-  `Sobrenome` varchar(50) NOT NULL,
-  `Telefone` bigint(13) NOT NULL,
+  `Classeid` int(1) NOT NULL,
+  `idcliente` int(11) NOT NULL,
   `Email` varchar(30) NOT NULL,
-  `Senha` varchar(20) NOT NULL,
-  `Classeid` int(1) NOT NULL
+  `Senha` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Despejando dados para a tabela `usuario`
 --
 
-INSERT INTO `usuario` (`idusuario`, `Nome`, `Sobrenome`, `Telefone`, `Email`, `Senha`, `Classeid`) VALUES
-(1, 'b', 'b', 2, 'b@b', 'b', 2),
-(2, 'c', 'cc', 3, 'c@c', 'c', 2),
-(3, 'd', 'd', 4, 'd@d', 'd', 2),
-(4, 'Lucas', 'Mitmann Magedanz', 5554984005750, 'lucas.m.magedanz@gmail.com', 'Lucas01lo', 1);
+INSERT INTO `usuario` (`idusuario`, `Classeid`, `idcliente`, `Email`, `Senha`) VALUES
+(1, 2, 1, 'b@b', 'b'),
+(2, 2, 2, 'c@c', 'c'),
+(3, 2, 3, 'd@d', 'd'),
+(4, 1, 4, 'lucas.m.magedanz@gmail.com', 'Lucas01lo');
 
 --
 -- Índices para tabelas despejadas
@@ -102,7 +123,8 @@ INSERT INTO `usuario` (`idusuario`, `Nome`, `Sobrenome`, `Telefone`, `Email`, `S
 -- Índices de tabela `agendamentos`
 --
 ALTER TABLE `agendamentos`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idusuario` (`idusuario`);
 
 --
 -- Índices de tabela `classes`
@@ -111,11 +133,18 @@ ALTER TABLE `classes`
   ADD PRIMARY KEY (`Classeid`);
 
 --
+-- Índices de tabela `cliente`
+--
+ALTER TABLE `cliente`
+  ADD PRIMARY KEY (`idcliente`);
+
+--
 -- Índices de tabela `usuario`
 --
 ALTER TABLE `usuario`
   ADD PRIMARY KEY (`idusuario`),
-  ADD KEY `fk_id` (`Classeid`);
+  ADD KEY `fk_id` (`Classeid`),
+  ADD KEY `idcliente` (`idcliente`);
 
 --
 -- AUTO_INCREMENT para tabelas despejadas
@@ -128,6 +157,12 @@ ALTER TABLE `agendamentos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
+-- AUTO_INCREMENT de tabela `cliente`
+--
+ALTER TABLE `cliente`
+  MODIFY `idcliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT de tabela `usuario`
 --
 ALTER TABLE `usuario`
@@ -138,10 +173,17 @@ ALTER TABLE `usuario`
 --
 
 --
+-- Restrições para tabelas `agendamentos`
+--
+ALTER TABLE `agendamentos`
+  ADD CONSTRAINT `agendamentos_ibfk_1` FOREIGN KEY (`idusuario`) REFERENCES `usuario` (`idusuario`);
+
+--
 -- Restrições para tabelas `usuario`
 --
 ALTER TABLE `usuario`
-  ADD CONSTRAINT `fk_id` FOREIGN KEY (`Classeid`) REFERENCES `classes` (`Classeid`);
+  ADD CONSTRAINT `fk_id` FOREIGN KEY (`Classeid`) REFERENCES `classes` (`Classeid`),
+  ADD CONSTRAINT `usuario_ibfk_1` FOREIGN KEY (`idcliente`) REFERENCES `cliente` (`idcliente`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

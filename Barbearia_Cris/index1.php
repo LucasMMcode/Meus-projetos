@@ -1,11 +1,12 @@
 <?php
 include "conexao.php";
+session_start();
 if (isset($_POST['submit'])) {
-	session_start();
         
 	$email = $_POST['email'];
 	$senha = $_POST['senha'];
-		$sql = "SELECT * FROM `usuario` WHERE Email = '$email';";
+	$sql = "SELECT usuario.Email, usuario.Senha, usuario.Classeid, cliente.Nome, cliente.Sobrenome, cliente.Telefone FROM usuario JOIN cliente ON usuario.idcliente = cliente.idcliente WHERE Email = '$email';";
+
 		$result = $conn->query($sql);
 		if ($result->num_rows > 0) {
 			while ($row = $result->fetch_assoc()) {	
@@ -25,11 +26,6 @@ if (isset($_POST['submit'])) {
 			}
 			$_SESSION['usuario'] = 'joao123';
 			echo $_SESSION['usuario'];
-		}else {
-            echo  '<script>
-                        window.location.href = "login.php";
-                        alert("Login failed. Invalid email or password! ")
-                    </script>';
 		}
 		if($_SESSION['classe'] == "1"){
 			print "
