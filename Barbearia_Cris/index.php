@@ -1,14 +1,14 @@
 <?php
 include "conexao.php";
 
-session_start();
+
 if (isset($_POST['submit'])) {
-        
+	session_start();        
 	$email = $_POST['email'];
 	$senha = $_POST['senha'];
 	$sql = "SELECT usuario.Email, usuario.Senha, usuario.Classeid, 
 	cliente.Nome, cliente.Sobrenome, cliente.Telefone 
-	FROM usuario JOIN cliente ON usuario.idcliente = cliente.idcliente WHERE Email = '$email';";
+	FROM usuario JOIN cliente ON usuario.idcliente = cliente.idcliente WHERE usuario.Email = '$email';";
 
 		$result = $conn->query($sql);
 		if ($result->num_rows > 0) {
@@ -27,8 +27,8 @@ if (isset($_POST['submit'])) {
 			$_SESSION['senha'] =$row["Senha"];
 			$_SESSION['classe'] = $row["Classeid"];
 			}
-			$_SESSION['usuario'] = 'joao123';
-			echo $_SESSION['usuario'];
+			//$_SESSION['usuario'] = 'joao123';
+			//echo $_SESSION['usuario'];
 		}
         else{  
             echo  '<script>
@@ -80,7 +80,6 @@ include "includes/cabecalho.inc";
 					<li class="itens">Limpeza</li>
 				</ul><img class="imagem-beneficios" src="img/Beneficios.jpg">
 			</div>
-			<div class="video"> <iframe width="100%" height="315" src="https://www.youtube.com/embed/wcVVXUV0YUY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> </div>	
 	</main>
 
 <?php

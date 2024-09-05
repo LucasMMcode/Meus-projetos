@@ -11,18 +11,19 @@
         <header>
         <div class="loginimg">
             <?php
-        if($_SESSION['nome']!=null){ print "<p class='loginnome'>". $_SESSION['nome']." ".$_SESSION['sobrenome']." </p>";
-            }?>
-		<a href="login.php"><img src="<?php if($_SESSION['nome']==null){echo'img/login.png';}else{echo'img/login2.png';}?>" width ="60px""></a></div>
+        if (isset($_POST['submit'])) {if($_SESSION['nome']!=null){ print "<p class='loginnome'>". $_SESSION['nome']." ".$_SESSION['sobrenome']." </p>";
+            }}?>
+		<a href="login.php"><img src="<?php if (isset($_POST['submit'])) {if($_SESSION['nome']==null){echo'img/login.png';}else{echo'img/login2.png';}}else{echo'img/login.png';}?>" width ="60px""></a></div>
             <div class="caixa">
-                <h1 ><img src="img/bg.jpg" alt="logo da Barbearia Alra" width="178px"></h1>
+                <h1 ><img src="img/logo2.png" alt="logo da Barbearia Alra" width="178px"></h1>
 
                 <nav>
     	            <ul>
 						<?php
+                        if (isset($_POST['submit'])) {
                         if($_SESSION['classe']==1){
                             echo'<li><a href="tabelahorarios.php">Tabela horários</a></li>';
-                            }else{}
+                            }else{}}
                             ?>
     	                <li><a href="index.php">Home</a></li>
     	                <li><a href="produtos.php">Produtos</a></li>
