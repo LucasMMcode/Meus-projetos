@@ -1,25 +1,26 @@
 <?php
+	session_start();
 include "conexao.php";
-
-
 if (isset($_POST['submit'])) {
-	session_start();        
 	$email = $_POST['email'];
 	$senha = $_POST['senha'];
 	$sql = "SELECT usuario.Email, usuario.Senha, usuario.Classeid, 
 	cliente.Nome, cliente.Sobrenome, cliente.Telefone 
 	FROM usuario JOIN cliente ON usuario.idcliente = cliente.idcliente WHERE usuario.Email = '$email';";
+	$result = $conn->query($sql);
 
-		$result = $conn->query($sql);
+}
+if (isset($_SESSION['submit'])) {
 		if ($result->num_rows > 0) {
 			while ($row = $result->fetch_assoc()) {	
-				/*echo "Nome: " . $row["Nome"].
-				"<br> Sobrenome: " . $row["Sobrenome"]. 
-				"<br> Telefone: " . $row["Telefone"]. 
-				"<br> Email: " . $row["Email"]. 
-				"<br> Senha: " . $row["Senha"].
-				"<br> Classeid: " . $row["Classeid"].
-				"<br> <br>";*/
+			//echo "Nome: " . $row["Nome"].
+			//"<br> Sobrenome: " . $row["Sobrenome"]. 
+			//"<br> Telefone: " . $row["Telefone"]. 
+			//"<br> Email: " . $row["Email"]. 
+			//"<br> Senha: " . $row["Senha"].
+			//"<br> Classeid: " . $row["Classeid"]."<br> <br>";
+			
+			$_SESSION['submit'] = $_POST['submit'];
 			$_SESSION['nome'] = $row["Nome"];
 			$_SESSION['sobrenome'] =$row["Sobrenome"];
 			$_SESSION['telefone'] =$row["Telefone"];
@@ -30,12 +31,12 @@ if (isset($_POST['submit'])) {
 			//$_SESSION['usuario'] = 'joao123';
 			//echo $_SESSION['usuario'];
 		}
-        else{  
-            echo  '<script>
-                        window.location.href = "login.php";
-                        alert("Login failed. Invalid email or password! ")
-                    </script>';
-        }
+        //else{  
+        //    echo  '<script>
+        //                window.location.href = "login.php";
+        //                alert("Login failed. Invalid email or password! ")
+        //            </script>';
+        //}
 		if($_SESSION['classe'] == "1"){
 			print "
 			<script>

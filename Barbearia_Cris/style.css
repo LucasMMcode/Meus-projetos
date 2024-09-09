@@ -16,12 +16,24 @@ header {
 
 .loginnome{
     display: inline;
-    font-size:40px;
+    font-size:50px;
     vertical-align:top;
     margin-top: 0px;
 }
 
+.sair{
+    display:inline;
+    text-transform: uppercase;
+    color: #000000;
+    font-weight: bold;
+    font-size: 22px;
+    text-decoration: none;
+}
 
+.sair:hover{
+    color: #C78C19;
+    text-decoration: underline;    
+}
 .caixa {
     position: relative;
     width: 940px;

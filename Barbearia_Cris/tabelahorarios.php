@@ -1,4 +1,5 @@
-<?php $classe = 0;$nome = null;?>
+<?php
+session_start(); ?>
 <main>
         <table border="5px">
             <tr>
@@ -17,8 +18,6 @@
             </tr>
 
 <?php
-	session_start();
-echo $_SESSION['usuario'];
 $dataAtual = date("Y-m-d");
 include "conexao.php";
 include "includes/cabecalho.inc";

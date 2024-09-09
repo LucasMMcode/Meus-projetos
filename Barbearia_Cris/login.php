@@ -9,7 +9,6 @@
     <body class="login">
         <div class="page">
 <?php
-session_start();
     include('conexao.php');
     if (isset($_POST['submit'])) {
         $email = $_POST['email'];

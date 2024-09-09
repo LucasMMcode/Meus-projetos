@@ -1,4 +1,5 @@
-<?php $classe = 0;$nome = null;?>
+<?php 
+session_start();?>
 <?php
 session_start();
 include "includes/cabecalho.inc"
