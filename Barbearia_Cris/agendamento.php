@@ -4,7 +4,7 @@ include "includes/cabecalho.inc"
 ?>
 
 <main>
-        <form style="padding-left: 30px;">
+        <form style="padding-left: 30px;" action="codagendamento.php">
                 <label for="nomesobrenome"> Nome e sobrenome </label>
                 <input class="input-padrão" type="text" id="nomesobrenome" value="<?php echo $_SESSION['nome']." ".$_SESSION['sobrenome'];?>"required>
 
@@ -19,7 +19,7 @@ include "includes/cabecalho.inc"
 
                 <fieldset>
                     <legend> Que dia e horário prefere ser atendido </legend>
-                    <input type="date"> <input type="time">
+                    <input type="date" id="dia"> <input type="time" id="hora">
                 </fieldset>
     
                 <br>

@@ -2,11 +2,8 @@
 <?php
 session_start();
     include('conexao.php');
-    if (isset($_POST['submit'])) {
+        if (isset($_POST['submit'])) {
         
-        $nome = $_POST['nome'];
-        $sobrenome = $_POST['sobrenome'];
-        $telefone = $_POST['telefone'];
         $email = $_POST['email'];
         $senha = $_POST['senha'];
         $senhac = $_POST['senhac'];
@@ -15,10 +12,6 @@ session_start();
         $result2 = mysqli_query($conn, $sql2);  
         $row = mysqli_fetch_array($result2, MYSQLI_ASSOC);  
         $count = mysqli_num_rows($result2);
-        $sql3 = "INSERT INTO cliente (Nome,Sobrenome,Telefone) VALUES (\"$nome\",\"$sobrenome\",\"$telefone\");";
-        $result3 = mysqli_query($conn, $sql3);
-        $sql = "INSERT INTO usuario (Email,Senha,Classeid) VALUES (\"$email\",\"$senha\",2);";
-        $result = mysqli_query($conn, $sql);
         if($senha==$senhac){
             if($count==1){
             echo  '<script>
@@ -27,9 +20,10 @@ session_start();
             </script>';
             }
             else{
+                $sql = "INSERT INTO usuario (Email,Senha,Classeid) VALUES (\"$email\",\"$senha\",2);";
+                $result = mysqli_query($conn, $sql);
                 echo'<script>
-                window.location.href = "login.php";
-                alert("cadastro feito pode logar")
+                window.location.href = "cadastro copy.php";
                 </script>';
             }
         }

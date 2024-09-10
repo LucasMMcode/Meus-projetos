@@ -11,7 +11,7 @@
         <header>
         <div class="loginimg">
             <?php
-        if (isset($_SESSION['submit'])) {if($_SESSION['nome']!=null){ print "<p class='loginnome'>". $_SESSION['nome']." ".$_SESSION['sobrenome']." </p>";
+             if (isset($_SESSION['submit'])) {if($_SESSION['nome']!=null){ print "<p class='loginnome'>". $_SESSION['nome']." ".$_SESSION['sobrenome']." </p>";
             }}?>
 		<a href="login.php"><img src="<?php if (isset($_SESSION['submit'])) {if($_SESSION['nome']==null){echo'img/login.png';}else{echo'img/login2.png';}}else{echo'img/login.png';}?>" width ="60px""></a>
         <a class="sair"href="sair.php">Sair</a></div>
@@ -27,7 +27,12 @@
                             }else{}}
                             ?>
     	                <li><a href="index.php">Home</a></li>
-    	                <li><a href="produtos.php">Produtos</a></li>
+                        
+						<?php
+                        if (isset($_SESSION['submit'])) {
+                            echo'<li><a href="produtos.php">Produtos</a></li>';
+                            }else{}
+                            ?>
     	                <li><a href="https://web.whatsapp.com/send?phone=54984005750">Contato</a></li>
     	            </ul>
                 </nav>
