@@ -27,12 +27,7 @@
                             }else{}}
                             ?>
     	                <li><a href="index.php">Home</a></li>
-                        
-						<?php
-                        if (isset($_SESSION['submit'])) {
-                            echo'<li><a href="produtos.php">Produtos</a></li>';
-                            }else{}
-                            ?>
+                        <li><a href="produtos.php">Produtos</a></li>
     	                <li><a href="https://web.whatsapp.com/send?phone=54984005750">Contato</a></li>
     	            </ul>
                 </nav>
