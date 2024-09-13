@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 10/09/2024 às 15:44
+-- Tempo de geração: 13/09/2024 às 15:39
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.0.28
 
@@ -91,7 +91,8 @@ INSERT INTO `cliente` (`idcliente`, `idusuario`, `Nome`, `Sobrenome`, `Telefone`
 (2, 2, 'c', 'cc', 3),
 (3, 3, 'd', 'd', 4),
 (4, 4, 'Lucas', 'Mitmann Magedanz', 5554984005750),
-(5, 5, 'Isabelle', 'Milesi', 54996789571);
+(5, 5, 'Isabelle', 'Milesi', 54996789571),
+(6, 6, 'a', 'a', 1);
 
 -- --------------------------------------------------------
 
@@ -115,7 +116,8 @@ INSERT INTO `usuario` (`idusuario`, `Classeid`, `Email`, `Senha`) VALUES
 (2, 2, 'c@c', 'c'),
 (3, 2, 'd@d', 'd'),
 (4, 1, 'lucas.m.magedanz@gmail.com', 'Lucas01lo'),
-(5, 2, 'bellepmilesi@gmail.com', 'SempreDigo112');
+(5, 2, 'bellepmilesi@gmail.com', 'SempreDigo112'),
+(6, 1, 'a@a', 'a');
 
 --
 -- Índices para tabelas despejadas
@@ -162,13 +164,13 @@ ALTER TABLE `agendamentos`
 -- AUTO_INCREMENT de tabela `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `idcliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `idcliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de tabela `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `idusuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `idusuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Restrições para tabelas despejadas
