@@ -393,3 +393,16 @@ td, th {
     background-color: darkorange;
 
 }
+
+#slecthora{
+    width: 50px;
+    margin: 10px;
+}
+.thhorario{
+    width: 695px
+}
+
+
+table, th, td {
+    border: none;
+}
