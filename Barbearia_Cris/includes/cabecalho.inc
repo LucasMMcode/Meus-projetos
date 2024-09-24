@@ -28,7 +28,37 @@
                             ?>
     	                <li><a href="index.php">Home</a></li>
                         <li><a href="produtos.php">cortes</a></li>
-    	                <li><a href="https://web.whatsapp.com/send?phone=54984005750">Contato</a></li>
+    	                <li class="dropdown">
+  <button onclick="myFunction()" class="dropbtn">Contato</button>
+  <div id="myDropdown" class="dropdown-content">
+    <a href="https://web.whatsapp.com/send?phone=54984005750">whatsapp</a>
+    <a href="#facebook">Facebook</a>
+    <a href="https://www.instagram.com/barbaarao?igsh=MWtnMnllYnhpcjlwMg==">instagram</a>
+    <a href="#email">email</a>
+  </div>
+</li>
+
+<script>
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
     	            </ul>
                 </nav>
             </div>
