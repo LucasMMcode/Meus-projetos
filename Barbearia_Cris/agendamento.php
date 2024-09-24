@@ -4,22 +4,22 @@ include "includes/cabecalho.inc"
 ?>
 
 <main>
-        <form style="padding-left: 30px;" action="codagendamento.php">
+        <form style="padding-left: 30px;" method="POST" action="codagendamento.php">
                 <label for="nomesobrenome"> Nome e sobrenome </label>
-                <input class="input-padrão" type="text" id="nomesobrenome" value="<?php echo $_SESSION['nome']." ".$_SESSION['sobrenome'];?>"required>
+                <input class="input-padrão" name="nome"type="text" id="nomesobrenome" value="<?php echo $_SESSION['nome']." ".$_SESSION['sobrenome'];?>"required>
 
                 <label for="email"> Email </label>
-                <input class="input-padrão" type="email" id="email" required value="<?php echo $_SESSION['email']?>">
+                <input class="input-padrão" name="email" type="email" id="email" required value="<?php echo $_SESSION['email']?>">
                 
                 <label for="telefone"> Telefone </label>
-                <input class="input-padrão" type="tel" id="telefone" required value="<?php echo $_SESSION['telefone']?>"> 
+                <input class="input-padrão" name="telefone" type="tel" id="telefone" required value="<?php echo $_SESSION['telefone']?>"> 
 
                 <label for="mensagem"> Mensagem </label>
-                <textarea class="input-padrão" cols="70" rows="10" id="mensagem" required> </textarea>
+                <textarea class="input-padrão" name="mensagen"cols="70" rows="10" id="mensagem" required> </textarea>
 
                 <fieldset>
                     <legend> Que dia e horário prefere ser atendido </legend>
-                    <input type="date" id="dia">
+                    <input type="date" name="dia" id="dia">
                     <!--
                     <select id="hora" name="hora">
                         <option value="00">00</option>
@@ -110,7 +110,7 @@ include "includes/cabecalho.inc"
                         <option value="58">58</option>
                         <option value="59">59</option>
                     </select>-->
-                    <!--
+                
                     <select id="horario" name="horario">
                         <option value="07:00">07:00</option>
                         <option value="07:30">07:30</option>
@@ -136,12 +136,12 @@ include "includes/cabecalho.inc"
                         <option value="17:30">17:30</option>
                         <option value="18:00">18:00</option>
                         <option value="18:30">18:30</option>
-                    </select>-->
-                <br> <table style="border: none;">
+                    </select>
+                <br> <!--<table style="border: none;">
         <tr>
             <th colspan="6" class="thhorario">Horário</th>
             </tr>
-                    <?php
+                    <?php/*
         $horarioInicial = strtotime('08:00');
         $horarioFinal = strtotime('19:00');
         $intervalo = 30 * 60; // Intervalo de 30 minutos em segundos
@@ -157,13 +157,13 @@ include "includes/cabecalho.inc"
             if($colunas%7 == 0){ $colunas= 0;echo "</tr>";}
             $colunas++;
         }
-        ?>
-        </table>
+        */?>
+        </table>-->
                 </fieldset>
     
                 <br>
 
-                <input class="enviar" type="submit" value="Agendar">
+                <input class="enviar" name="submit" type="submit" value="Agendar">
             </form>
 
         </main>

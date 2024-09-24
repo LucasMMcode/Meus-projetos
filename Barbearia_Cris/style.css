@@ -92,7 +92,7 @@ nav a:hover {
 }
 
 .produtos li:hover h2 {
-    font-size: 32.5733px;
+    font-size: 32px;
 }
 
 .produtos h2 {
@@ -397,12 +397,4 @@ td, th {
 #slecthora{
     width: 50px;
     margin: 10px;
-}
-.thhorario{
-    width: 695px
-}
-
-
-table, th, td {
-    border: none;
 }
