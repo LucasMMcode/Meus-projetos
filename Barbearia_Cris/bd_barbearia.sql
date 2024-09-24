@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 13/09/2024 às 15:39
+-- Tempo de geração: 24/09/2024 às 17:20
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.0.28
 
@@ -30,24 +30,12 @@ SET time_zone = "+00:00";
 CREATE TABLE `agendamentos` (
   `id` int(11) NOT NULL,
   `idusuario` int(11) NOT NULL,
-  `email` varchar(50) NOT NULL,
+  `nome` varchar(50) NOT NULL,
+  `telefone` bigint(15) NOT NULL,
   `dia` date NOT NULL,
   `hora` time NOT NULL,
   `descrição` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Despejando dados para a tabela `agendamentos`
---
-
-INSERT INTO `agendamentos` (`id`, `idusuario`, `email`, `dia`, `hora`, `descrição`) VALUES
-(1, 4, 'lucas.m.magedanz@gmail.com', '2024-08-27', '00:09:15', 'cortar barba e cabelo'),
-(2, 4, 'lucas.m.magedanz@gmail.com', '2024-09-27', '09:15:00', 'cortar barba e cabelo'),
-(3, 4, 'lucas.m.magedanz@gmail.com', '2024-09-26', '09:15:00', 'cortar barba e cabelo'),
-(4, 4, 'lucas.m.magedanz@gmail.com', '2024-08-26', '09:15:00', 'cortar barba e cabelo'),
-(5, 4, 'lucas.m.magedanz@gmail.com', '2025-01-01', '01:58:32', 'cortar barba e cabelo'),
-(6, 4, 'lucas.m.magedanz@gmail.com', '2024-08-27', '01:58:32', 'cortar barba e cabelo'),
-(7, 4, 'lucas.m.magedanz@gmail.com', '1111-11-11', '11:11:11', 'cortar barba e cabelo');
 
 -- --------------------------------------------------------
 
@@ -158,7 +146,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de tabela `agendamentos`
 --
 ALTER TABLE `agendamentos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `cliente`
