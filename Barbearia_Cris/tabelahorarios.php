@@ -27,7 +27,7 @@ if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {	
         echo "
         <tr> 
-        <td>" . $row["email"]. "</td> 
+        <td>" . $row["nome"]. "</td> 
         <td>" . date("d/m/Y", strtotime($row["dia"])). "</td>
         <td>" . $row["hora"]. "</td>
         <td>" . $row["descrição"]. "</td>

@@ -4,26 +4,42 @@ session_start();
     include('conexao.php');    
         if (isset($_POST['submit'])) {
             
-        $email = $_POST['email'];
-        $mensagem = $_POST['mensagen'];
-        $dia = $_POST['dia'];
-        $horario = $_POST['horario'];
+            $nome = $_POST['nome'];
+            $email = $_POST['email'];
+            $mensagem = $_POST['mensagen'];
+            $telefone = $_POST['telefone'];
+            $dia = $_POST['dia'];
+            $horario = $_POST['horario'];
 
-        $sql2 = "select idusuario from usuario ";
-        $result2 = mysqli_query($conn, $sql2);
-        if ($result2->num_rows > 0) {
-            while ($row = $result2->fetch_assoc()) {	
-                $idusuario = $row["idusuario"];
+            $sql2 = "SELECT idusuario from usuario ";
+            $result2 = mysqli_query($conn, $sql2);
+            if ($result2->num_rows > 0) {
+                while ($row = $result2->fetch_assoc()) {
+                    $idusuario = $row["idusuario"];
+                }
             }
-        }
 
-        $sql = "INSERT INTO agendamentos (idusuario, email, descrição, dia, hora) VALUES (\"$idusuario\",\"$email\",\"$mensagem\",\"$dia\",\"$horario\");";
-        $result = mysqli_query($conn, $sql);
-            
+            $sql3 = "SELECT dia, hora from agendamentos where hora ='$horario' and dia = '$dia'";
+            echo $horario . $dia;
+            $result3 = mysqli_query($conn, $sql3);
+            $row = mysqli_fetch_array($result3, MYSQLI_ASSOC);  
+            $count = mysqli_num_rows($result3);
+            if($count==0){
+                
+                $sql = "INSERT INTO agendamentos (idusuario, nome, telefone, descrição, dia, hora) VALUES (\"$idusuario\",\"$nome\",\"$telefone\",\"$mensagem\",\"$dia\",\"$horario\");";
+                $result = mysqli_query($conn, $sql);
+                    
                 echo'<script>
                 '.'window.location.href = "index.php";'.
-                'alert("cadastro feito pode logar")
+                'alert("agendamento feito")
                 </script>';
-            
+                    
+            }
+            else {
+                echo'<script>
+                '.'window.location.href = "agendamento.php";'.
+                'alert("horário indisponivel")
+                </script>';
+            }
         }
     ?>

@@ -13,9 +13,9 @@ include "includes/cabecalho.inc"
                 
                 <label for="telefone"> Telefone </label>
                 <input class="input-padrão" name="telefone" type="tel" id="telefone" required value="<?php echo $_SESSION['telefone']?>"> 
-
+                
                 <label for="mensagem"> Mensagem </label>
-                <textarea class="input-padrão" name="mensagen"cols="70" rows="10" id="mensagem" required> </textarea>
+                <input class="input-padrão" name="mensagen" id="mensagem" required> </input>
 
                 <fieldset>
                     <legend> Que dia e horário prefere ser atendido </legend>
