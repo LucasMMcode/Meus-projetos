@@ -23,12 +23,12 @@
 						<?php
                         if (isset($_SESSION['submit'])) {
                         if($_SESSION['classe']==1){
-                            echo'<li><a href="tabelahorarios.php">Tabela horários</a></li>';
+                            echo'<li><a href="tabelahorarios.php">Tabela horários</a></li>
+                        <li><a href="produtos.php">produtos</a></li>';
                             }else{}}
                             ?>
     	                <li><a href="index.php">Home</a></li>
                         <li><a href="cortes.php">cortes</a></li>
-                        <li><a href="produtos.php">produtos</a></li>
     	                <li class="dropdown">
   <button onclick="myFunction()" class="dropbtn">Contato</button>
   <div id="myDropdown" class="dropdown-content">

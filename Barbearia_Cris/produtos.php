@@ -21,10 +21,11 @@
         }
         </style>
     </head>
-    <body onload="geraitens(); bemvindo()"  style="background-color: white">
+    <body onload="geraitens();"  style="background-color: white">
     <header>
         <div class="loginimg">
             <?php
+	session_start();
              if (isset($_SESSION['submit'])) {if($_SESSION['nome']!=null){ print "<p class='loginnome'>". $_SESSION['nome']." ".$_SESSION['sobrenome']." </p>";
             }}?>
 		<a href="login.php"><img src="<?php if (isset($_SESSION['submit'])) {if($_SESSION['nome']==null){echo'img/login2.png';}else{echo'img/login.png';}}else{echo'img/login2.png';}?>" width ="60px""></a>
@@ -37,12 +38,12 @@
 						<?php
                         if (isset($_SESSION['submit'])) {
                         if($_SESSION['classe']==1){
-                            echo'<li><a href="tabelahorarios.php">Tabela horários</a></li>';
+                            echo'<li><a href="tabelahorarios.php">Tabela horários</a></li>
+                        <li><a href="produtos.php">produtos</a></li>';
                             }else{}}
                             ?>
     	                <li><a href="index.php">Home</a></li>
                         <li><a href="cortes.php">cortes</a></li>
-                        <li><a href="produtos.php">produtos</a></li>
     	                <li class="dropdown">
   <button onclick="myFunction()" class="dropbtn">Contato</button>
   <div id="myDropdown" class="dropdown-content">
