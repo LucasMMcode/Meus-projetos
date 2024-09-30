@@ -1,7 +1,7 @@
 <?php
 session_start(); ?>
 <main>
-        <table border="5px">
+        <table border="5px" class="agendamento">
             <tr>
                 <td>
                     Nome

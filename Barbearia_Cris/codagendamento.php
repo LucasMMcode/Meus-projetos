@@ -20,17 +20,17 @@ session_start();
             }
 
             $sql3 = "SELECT dia, hora from agendamentos where hora ='$horario' and dia = '$dia'";
-            echo $horario . $dia;
+            echo $horario."<br>" . $dia."<br>".$nome."<br>".$email."<br>".$mensagem."<br>".$telefone;
             $result3 = mysqli_query($conn, $sql3);
             $row = mysqli_fetch_array($result3, MYSQLI_ASSOC);  
             $count = mysqli_num_rows($result3);
             if($count==0){
                 
-                $sql = "INSERT INTO agendamentos (idusuario, nome, telefone, descrição, dia, hora) VALUES (\"$idusuario\",\"$nome\",\"$telefone\",\"$mensagem\",\"$dia\",\"$horario\");";
+                $sql = "INSERT INTO agendamentos (idusuario, nome, descrição, dia, hora) VALUES (\"$idusuario\",\"$nome\",\"$mensagem\",\"$dia\",\"$horario\");";
                 $result = mysqli_query($conn, $sql);
-
+                    
                 echo'<script>
-                './/'window.location.href = "index.php";'.
+                '.'window.location.href = "index.php";'.
                 'alert("agendamento feito")
                 </script>';
                     
