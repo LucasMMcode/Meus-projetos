@@ -4,7 +4,7 @@ session_start(); ?>
         <table border="5px">
             <tr>
                 <td>
-                    Email
+                    Nome
                 </td>
                 <td>
                     Dia

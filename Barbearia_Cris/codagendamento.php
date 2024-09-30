@@ -28,9 +28,9 @@ session_start();
                 
                 $sql = "INSERT INTO agendamentos (idusuario, nome, telefone, descrição, dia, hora) VALUES (\"$idusuario\",\"$nome\",\"$telefone\",\"$mensagem\",\"$dia\",\"$horario\");";
                 $result = mysqli_query($conn, $sql);
-                    
+
                 echo'<script>
-                '.'window.location.href = "index.php";'.
+                './/'window.location.href = "index.php";'.
                 'alert("agendamento feito")
                 </script>';
                     
