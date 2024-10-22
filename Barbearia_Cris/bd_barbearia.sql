@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 24/09/2024 às 17:20
+-- Tempo de geração: 22/10/2024 às 17:25
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.0.28
 
@@ -37,22 +37,29 @@ CREATE TABLE `agendamentos` (
   `descrição` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Despejando dados para a tabela `agendamentos`
+--
+
+INSERT INTO `agendamentos` (`id`, `idusuario`, `nome`, `telefone`, `dia`, `hora`, `descrição`) VALUES
+(4, 7, 'Lucas Mitmann Magedanz', 0, '2024-10-23', '13:00:00', 'sadsdasdsdasdas');
+
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `classes`
+-- Estrutura para tabela `categoriausuario`
 --
 
-CREATE TABLE `classes` (
-  `Classeid` int(1) NOT NULL,
+CREATE TABLE `categoriausuario` (
+  `idcategoria` int(1) NOT NULL,
   `nome` varchar(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `classes`
+-- Despejando dados para a tabela `categoriausuario`
 --
 
-INSERT INTO `classes` (`Classeid`, `nome`) VALUES
+INSERT INTO `categoriausuario` (`idcategoria`, `nome`) VALUES
 (1, 'ADM'),
 (2, 'Usuario');
 
@@ -65,22 +72,42 @@ INSERT INTO `classes` (`Classeid`, `nome`) VALUES
 CREATE TABLE `cliente` (
   `idcliente` int(11) NOT NULL,
   `idusuario` int(11) NOT NULL,
-  `Nome` varchar(15) NOT NULL,
-  `Sobrenome` varchar(50) NOT NULL,
-  `Telefone` bigint(13) NOT NULL
+  `nome` varchar(15) NOT NULL,
+  `sobrenome` varchar(50) NOT NULL,
+  `telefone` bigint(13) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Despejando dados para a tabela `cliente`
 --
 
-INSERT INTO `cliente` (`idcliente`, `idusuario`, `Nome`, `Sobrenome`, `Telefone`) VALUES
+INSERT INTO `cliente` (`idcliente`, `idusuario`, `nome`, `sobrenome`, `telefone`) VALUES
 (1, 1, 'b', 'b', 2),
 (2, 2, 'c', 'cc', 3),
 (3, 3, 'd', 'd', 4),
-(4, 4, 'Lucas', 'Mitmann Magedanz', 5554984005750),
-(5, 5, 'Isabelle', 'Milesi', 54996789571),
-(6, 6, 'a', 'a', 1);
+(4, 5, 'Isabelle', 'Milesi', 54996789571);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `funcionarios`
+--
+
+CREATE TABLE `funcionarios` (
+  `idfuncionario` int(10) NOT NULL,
+  `idusuario` int(10) NOT NULL,
+  `nome` varchar(10) NOT NULL,
+  `sobrenome` varchar(40) NOT NULL,
+  `telefone` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `funcionarios`
+--
+
+INSERT INTO `funcionarios` (`idfuncionario`, `idusuario`, `nome`, `sobrenome`, `telefone`) VALUES
+(1, 4, 'Lucas', 'Mitmann Magedanz', 2147483647),
+(2, 6, 'a', 'a', 1);
 
 -- --------------------------------------------------------
 
@@ -90,22 +117,24 @@ INSERT INTO `cliente` (`idcliente`, `idusuario`, `Nome`, `Sobrenome`, `Telefone`
 
 CREATE TABLE `usuario` (
   `idusuario` int(11) NOT NULL,
-  `Classeid` int(1) NOT NULL,
-  `Email` varchar(30) NOT NULL,
-  `Senha` varchar(20) NOT NULL
+  `classeid` int(1) NOT NULL,
+  `email` varchar(30) NOT NULL,
+  `senha` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Despejando dados para a tabela `usuario`
 --
 
-INSERT INTO `usuario` (`idusuario`, `Classeid`, `Email`, `Senha`) VALUES
+INSERT INTO `usuario` (`idusuario`, `classeid`, `email`, `senha`) VALUES
 (1, 2, 'b@b', 'b'),
 (2, 2, 'c@c', 'c'),
 (3, 2, 'd@d', 'd'),
 (4, 1, 'lucas.m.magedanz@gmail.com', 'Lucas01lo'),
 (5, 2, 'bellepmilesi@gmail.com', 'SempreDigo112'),
-(6, 1, 'a@a', 'a');
+(6, 1, 'a@a', 'a'),
+(7, 2, 'siojdji@sdkopsck', 'abcd'),
+(9, 2, 'f@f', 'f');
 
 --
 -- Índices para tabelas despejadas
@@ -119,10 +148,10 @@ ALTER TABLE `agendamentos`
   ADD KEY `idusuario` (`idusuario`);
 
 --
--- Índices de tabela `classes`
+-- Índices de tabela `categoriausuario`
 --
-ALTER TABLE `classes`
-  ADD PRIMARY KEY (`Classeid`);
+ALTER TABLE `categoriausuario`
+  ADD PRIMARY KEY (`idcategoria`);
 
 --
 -- Índices de tabela `cliente`
@@ -132,11 +161,18 @@ ALTER TABLE `cliente`
   ADD KEY `idusuario` (`idusuario`);
 
 --
+-- Índices de tabela `funcionarios`
+--
+ALTER TABLE `funcionarios`
+  ADD PRIMARY KEY (`idfuncionario`),
+  ADD KEY `idusuario` (`idusuario`);
+
+--
 -- Índices de tabela `usuario`
 --
 ALTER TABLE `usuario`
   ADD PRIMARY KEY (`idusuario`),
-  ADD KEY `fk_id` (`Classeid`);
+  ADD KEY `fk_id` (`classeid`);
 
 --
 -- AUTO_INCREMENT para tabelas despejadas
@@ -146,7 +182,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de tabela `agendamentos`
 --
 ALTER TABLE `agendamentos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de tabela `cliente`
@@ -155,10 +191,16 @@ ALTER TABLE `cliente`
   MODIFY `idcliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
+-- AUTO_INCREMENT de tabela `funcionarios`
+--
+ALTER TABLE `funcionarios`
+  MODIFY `idfuncionario` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT de tabela `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `idusuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `idusuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Restrições para tabelas despejadas
@@ -177,10 +219,16 @@ ALTER TABLE `cliente`
   ADD CONSTRAINT `fk_cliente_usuario` FOREIGN KEY (`idusuario`) REFERENCES `usuario` (`idusuario`);
 
 --
+-- Restrições para tabelas `funcionarios`
+--
+ALTER TABLE `funcionarios`
+  ADD CONSTRAINT `funcionarios_ibfk_1` FOREIGN KEY (`idusuario`) REFERENCES `usuario` (`idusuario`);
+
+--
 -- Restrições para tabelas `usuario`
 --
 ALTER TABLE `usuario`
-  ADD CONSTRAINT `fk_id` FOREIGN KEY (`Classeid`) REFERENCES `classes` (`Classeid`);
+  ADD CONSTRAINT `fk_id` FOREIGN KEY (`classeid`) REFERENCES `categoriausuario` (`idcategoria`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

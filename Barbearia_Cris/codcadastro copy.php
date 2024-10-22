@@ -14,8 +14,8 @@ session_start();
                 $idcliente = $row["idusuario"];
             }
         }
-
-        $sql = "INSERT INTO $_SESSION['categoria'] (idusuario, Nome,Sobrenome,Telefone) VALUES (\"$idcliente++\",\"$nome\",\"$sobrenome\",\"$telefone\");";
+        $categoria=$_SESSION['categoria'];
+        $sql = "INSERT INTO $categoria (idusuario, Nome,Sobrenome,Telefone) VALUES (\"$idcliente++\",\"$nome\",\"$sobrenome\",\"$telefone\");";
         $result = mysqli_query($conn, $sql);
             
                 echo'<script>

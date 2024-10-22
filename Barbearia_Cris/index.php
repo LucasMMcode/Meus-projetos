@@ -14,8 +14,8 @@ if (isset($_POST['submit'])) {
 	if ($_SESSION['classe']==1){
 		$_SESSION['categoria']="funcionarios";}else{
 		$_SESSION['categoria'] ="cliente";}
-
-	$sql2 = "SELECT * FROM $_SESSION['categoria'] JOIN usuario ON $_SESSION['categoria'].idusuario = usuario.idusuario WHERE usuario.Email = '$email';";
+	$categoria=$_SESSION['categoria'];
+	$sql2 = "SELECT * FROM $categoria JOIN usuario ON $categoria.idusuario = usuario.idusuario WHERE usuario.Email = '$email';";
 	$result2 = $conn->query($sql2);
 		if ($result2->num_rows > 0) {
 			while ($row = $result2->fetch_assoc()) {	
