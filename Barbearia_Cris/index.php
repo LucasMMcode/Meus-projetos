@@ -2,13 +2,23 @@
 	session_start();
 include "conexao.php";
 if (isset($_POST['submit'])) {
-	include "conexao.php";
 	$email = $_POST['email'];
 	$senha = $_POST['senha'];
-	$sql = "SELECT * FROM cliente JOIN usuario ON cliente.idusuario = usuario.idusuario WHERE usuario.Email = '$email';";
+	$sql = "SELECT * FROM usuario  WHERE Email = '$email' and Senha ='$senha';";
 	$result = $conn->query($sql);
-		if ($result->num_rows > 0) {
-			while ($row = $result->fetch_assoc()) {	
+	if ($result->num_rows > 0) {
+		while ($row = $result->fetch_assoc()) {
+	$_SESSION['classe'] = $row["classeid"];
+		}
+	}
+	if ($_SESSION['classe']==1){
+		$_SESSION['categoria']="funcionarios";}else{
+		$_SESSION['categoria'] ="cliente";}
+
+	$sql2 = "SELECT * FROM $_SESSION['categoria'] JOIN usuario ON $_SESSION['categoria'].idusuario = usuario.idusuario WHERE usuario.Email = '$email';";
+	$result2 = $conn->query($sql2);
+		if ($result2->num_rows > 0) {
+			while ($row = $result2->fetch_assoc()) {	
 			//echo "Nome: " . $row["Nome"].
 			//"<br> Sobrenome: " . $row["Sobrenome"]. 
 			//"<br> Telefone: " . $row["Telefone"]. 
@@ -17,12 +27,11 @@ if (isset($_POST['submit'])) {
 			//"<br> Classeid: " . $row["Classeid"]."<br> <br>";
 			
 			$_SESSION['submit'] = $_POST['submit'];
-			$_SESSION['nome'] = $row["Nome"];
-			$_SESSION['sobrenome'] =$row["Sobrenome"];
-			$_SESSION['telefone'] =$row["Telefone"];
-			$_SESSION['email'] =$row["Email"];
-			$_SESSION['senha'] =$row["Senha"];
-			$_SESSION['classe'] = $row["Classeid"];
+			$_SESSION['nome'] = $row["nome"];
+			$_SESSION['sobrenome'] =$row["sobrenome"];
+			$_SESSION['telefone'] =$row["telefone"];
+			$_SESSION['email'] =$row["email"];
+			$_SESSION['senha'] =$row["senha"];
 			}
 			//$_SESSION['usuario'] = 'joao123';
 			//echo $_SESSION['usuario'];

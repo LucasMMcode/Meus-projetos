@@ -1,6 +1,6 @@
 <?php
+session_start();
     include("conexao.php");
-    include("codcadastro.php")
     ?>
 
 <html lang="pt-br" >
@@ -24,6 +24,14 @@
             <input type="text" name="sobrenome" placeholder="Digite seu Sobrenome" autofocus="true" required/>
             <label for="telefone">Telefone</label>
             <input type="number" name="telefone"placeholder="Digite seu Telefone" autofocus="true" required/>
+            <?php
+            if($_SESSION['classe']==1){print" <select name='plataforma' required='required'>
+                <option value=''>Funcionário ou Cliente?</option>
+                <option value='funcionario'>Funcionário</option>
+                <option value='cliente'>Cliente</option>
+            </select>";}
+            ?>
+            <br>
             <input type="submit" name ="submit" value="Criar conta" class="btn" required/>
             <a href="login.php">Possui conta?</a>
         </form>

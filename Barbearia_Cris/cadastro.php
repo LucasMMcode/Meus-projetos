@@ -1,6 +1,6 @@
 <?php
+session_start();
     include("conexao.php");
-    include("codcadastro.php")
     ?>
 
 <html lang="pt-br" >
@@ -24,7 +24,7 @@
             <input type="password" name="senha"placeholder="Digite sua senha" required/>
             <label for="senhac">Repitir Senha </label>
             <input type="password" name="senhac"placeholder="Repita sua senha" required/>
-            <a href="/">Esqueci minha senha</a>
+            <br>
             <input type="submit" name ="submit" value="Criar conta" class="btn" required/>
             <a href="login.php">Possui conta?</a>
         </form>

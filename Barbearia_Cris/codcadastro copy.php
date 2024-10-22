@@ -1,4 +1,3 @@
-
 <?php
 session_start();
     include('conexao.php');
@@ -16,7 +15,7 @@ session_start();
             }
         }
 
-        $sql = "INSERT INTO cliente (idusuario, Nome,Sobrenome,Telefone) VALUES (\"$idcliente++\",\"$nome\",\"$sobrenome\",\"$telefone\");";
+        $sql = "INSERT INTO $_SESSION['categoria'] (idusuario, Nome,Sobrenome,Telefone) VALUES (\"$idcliente++\",\"$nome\",\"$sobrenome\",\"$telefone\");";
         $result = mysqli_query($conn, $sql);
             
                 echo'<script>
