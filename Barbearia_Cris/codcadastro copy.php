@@ -23,7 +23,7 @@ session_start();
 
         if($categoria == 'cliente'){$idcategoria = 2;} else if($categoria == 'funcionarios'){$idcategoria=1;}
 
-        $sql = "INSERT INTO $categoria (idusuario, Nome,Sobrenome,Telefone) VALUES (\"  \",\"$nome\",\"$sobrenome\",\"$telefone\");";
+        $sql = "INSERT INTO $categoria (idusuario, Nome,Sobrenome,Telefone) VALUES (\"$idusuario++\",\"$nome\",\"$sobrenome\",\"$telefone\");";
         $result = mysqli_query($conn, $sql);
         $sql = "UPDATE `usuario` `classeid`='$idcategoria' where `idusuario` = '$idusuario'";
         echo $sql;
