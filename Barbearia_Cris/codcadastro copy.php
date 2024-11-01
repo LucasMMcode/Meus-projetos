@@ -7,21 +7,31 @@ session_start();
         $sobrenome = $_POST['sobrenome'];
         $telefone = $_POST['telefone'];
 
-        $sql2 = "select idusuario from usuario ";
+
+        $sql2 = "SELECT idusuario FROM usuario ";
         $result2 = mysqli_query($conn, $sql2);
         if ($result2->num_rows > 0) {
             while ($row = $result2->fetch_assoc()) {	
-                $idcliente = $row["idusuario"];
+                $idusuario = $row["idusuario"];
             }
         }
-        $categoria=$_SESSION['categoria'];
-        $sql = "INSERT INTO $categoria (idusuario, Nome,Sobrenome,Telefone) VALUES (\"$idcliente++\",\"$nome\",\"$sobrenome\",\"$telefone\");";
+        if(isset($_POST['categoria'])){
+        echo $_POST['categoria'];
+        $categoria = $_POST['categoria'];
+        echo $categoria;}   
+        else{$categoria = 'cliente';}
+
+        if($categoria == 'cliente'){$idcategoria = 2;} else if($categoria == 'funcionarios'){$idcategoria=1;}
+
+        $sql = "INSERT INTO $categoria (idusuario, Nome,Sobrenome,Telefone) VALUES (\"$idusuario++\",\"$nome\",\"$sobrenome\",\"$telefone\");";
         $result = mysqli_query($conn, $sql);
-            
+        $sql = "UPDATE `usuario` `classeid`='$idcategoria' where `idusuario` = '$idusuario'";
+        echo $sql;
+        $result = mysqli_query($conn, $sql);
                 echo'<script>
-                window.location.href = "login.php";
-                alert("cadastro feito pode logar")
-                </script>';
+                '.'alert("cadastro feito pode logar")
+                '//.'window.location.href = "login.php";'
+                .'</script>';
             
         }
 

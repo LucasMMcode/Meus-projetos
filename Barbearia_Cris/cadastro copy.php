@@ -25,9 +25,9 @@ session_start();
             <label for="telefone">Telefone</label>
             <input type="number" name="telefone"placeholder="Digite seu Telefone" autofocus="true" required/>
             <?php if (isset($_SESSION['submit'])) {
-            if($_SESSION['classe']==1){print" <select name='plataforma' required='required'>
+            if($_SESSION['classe']==1){print" <select name='categoria' required='required'>
                 <option value=''>Funcionário ou Cliente?</option>
-                <option value='funcionario'>Funcionário</option>
+                <option value='funcionarios'>Funcionário</option>
                 <option value='cliente'>Cliente</option>
             </select>";}}
             ?>

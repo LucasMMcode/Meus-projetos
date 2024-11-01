@@ -20,7 +20,7 @@ session_start();
             </script>';
             }
             else{
-                $sql = "INSERT INTO usuario (Email,Senha,Classeid) VALUES (\"$email\",\"$senha\",2);";
+                $sql = "INSERT INTO usuario (Email,Senha,Classeid) VALUES (\"$email\",\"$senha\",1);";
                 $result = mysqli_query($conn, $sql);
                 echo'<script>
                 window.location.href = "cadastro copy.php";
