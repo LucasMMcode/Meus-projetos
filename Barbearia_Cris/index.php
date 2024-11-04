@@ -16,29 +16,32 @@ if (isset($_POST['submit'])) {
 		$_SESSION['categoria'] ="cliente";}
 	$categoria=$_SESSION['categoria'];
 	$sql2 = "SELECT * FROM $categoria JOIN usuario ON $categoria.idusuario = usuario.idusuario WHERE usuario.Email = '$email';";
+	//echo $sql2 . "<br>";
 	$result2 = $conn->query($sql2);
 		if ($result2->num_rows > 0) {
 			while ($row = $result2->fetch_assoc()) {	
-			//echo "Nome: " . $row["Nome"].
-			//"<br> Sobrenome: " . $row["Sobrenome"]. 
-			//"<br> Telefone: " . $row["Telefone"]. 
-			//"<br> Email: " . $row["Email"]. 
-			//"<br> Senha: " . $row["Senha"].
-			//"<br> idcategoria: " . $row["idcategoria"]."<br> <br>";
-			
 			$_SESSION['submit'] = $_POST['submit'];
 			$_SESSION['nome'] = $row["nome"];
 			$_SESSION['sobrenome'] =$row["sobrenome"];
 			$_SESSION['telefone'] =$row["telefone"];
 			$_SESSION['email'] =$row["email"];
 			$_SESSION['senha'] =$row["senha"];
+			$_SESSION['categoria'] = $row["idcategoria"];
+
+			//echo "Nome: " . $_SESSION["nome"].
+			//"<br> Sobrenome: " . $_SESSION["sobrenome"]. 
+			//"<br> Telefone: " . $_SESSION["telefone"]. 
+			//"<br> Email: " . $_SESSION["email"]. 
+			//"<br> Senha: " . $_SESSION["senha"].
+			//"<br> idcategoria: " . $row["idcategoria"]."<br> <br>";
+			
 			}
 			//$_SESSION['usuario'] = 'joao123';
 			//echo $_SESSION['usuario'];
 		}
         else{  
             echo  '<script>
-                        '//.'window.location.href = "login.php";'
+                        '.'window.location.href = "login.php";'
                         .'alert("Login failed. Invalid email or password! ")'
                     .'</script>';
         }
