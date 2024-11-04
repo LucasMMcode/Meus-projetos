@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 04/11/2024 às 12:12
+-- Tempo de geração: 04/11/2024 às 14:38
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.0.28
 
@@ -53,8 +53,8 @@ CREATE TABLE `categoriausuario` (
 --
 
 INSERT INTO `categoriausuario` (`idcategoria`, `nome`) VALUES
-(1, 'funcionario'),
-(2, 'Usuario');
+(1, 'Funcionario'),
+(2, 'Cliente');
 
 -- --------------------------------------------------------
 
@@ -89,7 +89,7 @@ CREATE TABLE `funcionarios` (
   `idusuario` int(10) NOT NULL,
   `nome` varchar(10) NOT NULL,
   `sobrenome` varchar(40) NOT NULL,
-  `telefone` int(11) NOT NULL
+  `telefone` bigint(13) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -97,7 +97,7 @@ CREATE TABLE `funcionarios` (
 --
 
 INSERT INTO `funcionarios` (`idfuncionario`, `idusuario`, `nome`, `sobrenome`, `telefone`) VALUES
-(1, 1, 'Lucas', 'Mitmann Magedanz', 2147483647),
+(1, 1, 'Lucas', 'Mitmann Magedanz', 54984005750),
 (2, 4, 'b', 'b', 2);
 
 -- --------------------------------------------------------
@@ -108,7 +108,7 @@ INSERT INTO `funcionarios` (`idfuncionario`, `idusuario`, `nome`, `sobrenome`, `
 
 CREATE TABLE `usuario` (
   `idusuario` int(11) NOT NULL,
-  `classeid` int(1) NOT NULL,
+  `idcategoria` int(1) NOT NULL,
   `email` varchar(30) NOT NULL,
   `senha` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -117,10 +117,10 @@ CREATE TABLE `usuario` (
 -- Despejando dados para a tabela `usuario`
 --
 
-INSERT INTO `usuario` (`idusuario`, `classeid`, `email`, `senha`) VALUES
+INSERT INTO `usuario` (`idusuario`, `idcategoria`, `email`, `senha`) VALUES
 (1, 1, 'lucas.m.magedanz@gmail.com', 'Lucas01lo'),
 (2, 2, 'bellepmilesi@gmail.com', 'SempreDigo112'),
-(3, 1, 'a@a', 'a'),
+(3, 2, 'a@a', 'a'),
 (4, 1, 'b@b', 'b');
 
 --
@@ -159,7 +159,7 @@ ALTER TABLE `funcionarios`
 --
 ALTER TABLE `usuario`
   ADD PRIMARY KEY (`idusuario`),
-  ADD KEY `fk_id` (`classeid`);
+  ADD KEY `fk_id` (`idcategoria`);
 
 --
 -- AUTO_INCREMENT para tabelas despejadas
@@ -169,13 +169,13 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de tabela `agendamentos`
 --
 ALTER TABLE `agendamentos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de tabela `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `idcliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idcliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de tabela `funcionarios`
@@ -187,7 +187,7 @@ ALTER TABLE `funcionarios`
 -- AUTO_INCREMENT de tabela `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `idusuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `idusuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Restrições para tabelas despejadas
@@ -215,7 +215,7 @@ ALTER TABLE `funcionarios`
 -- Restrições para tabelas `usuario`
 --
 ALTER TABLE `usuario`
-  ADD CONSTRAINT `fk_id` FOREIGN KEY (`classeid`) REFERENCES `categoriausuario` (`idcategoria`);
+  ADD CONSTRAINT `fk_id` FOREIGN KEY (`idcategoria`) REFERENCES `categoriausuario` (`idcategoria`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
