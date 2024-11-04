@@ -26,13 +26,13 @@ session_start();
 
         $sql = "INSERT INTO $categoria (idusuario, Nome,Sobrenome,Telefone) VALUES (\"$idusuario\",\"$nome\",\"$sobrenome\",\"$telefone\");";
         $result = mysqli_query($conn, $sql);
-        echo $sql  . "<br>";;
-        $sql = "UPDATE `usuario` `classeid`='$idcategoria' where `idusuario` = '$idusuario'";
-        echo $sql  . "<br>";;
+        echo $sql  . "<br>";
+        $sql = "UPDATE `usuario` SET `idcategoria`='$idcategoria' where `idusuario` = '$idusuario'";
+        echo $sql  . "<br>";
         $result = mysqli_query($conn, $sql);
                 echo'<script>
                 '.'alert("cadastro feito pode logar")
-                '//.'window.location.href = "login.php";'
+                '.'window.location.href = "login.php";'
                 .'</script>';
         }
     ?>

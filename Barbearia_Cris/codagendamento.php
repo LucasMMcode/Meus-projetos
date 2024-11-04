@@ -11,11 +11,13 @@ session_start();
             $dia = $_POST['dia'];
             $horario = $_POST['horario'];
 
-            $sql2 = "SELECT idusuario from usuario ";
+            $sql2 = "SELECT idusuario FROM usuario WHERE Email= '$email'";
+            echo $sql2;
             $result2 = mysqli_query($conn, $sql2);
             if ($result2->num_rows > 0) {
                 while ($row = $result2->fetch_assoc()) {
                     $idusuario = $row["idusuario"];
+                    echo $idusuario ."<br>";
                 }
             }
 

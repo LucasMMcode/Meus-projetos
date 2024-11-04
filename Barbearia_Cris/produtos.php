@@ -37,7 +37,7 @@
     	            <ul>
 						<?php
                         if (isset($_SESSION['submit'])) {
-                        if($_SESSION['classe']==1){
+                        if($_SESSION['categoria']==1){
                             echo'<li><a href="tabelahorarios.php">Tabela horários</a></li>
                         <li><a href="produtos.php">produtos</a></li>';
                             }else{}}

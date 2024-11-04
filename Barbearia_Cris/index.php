@@ -8,10 +8,10 @@ if (isset($_POST['submit'])) {
 	$result = $conn->query($sql);
 	if ($result->num_rows > 0) {
 		while ($row = $result->fetch_assoc()) {
-	$_SESSION['classe'] = $row["classeid"];
+	$_SESSION['categoria'] = $row["idcategoria"];
 		}
 	}
-	if ($_SESSION['classe']==1){
+	if ($_SESSION['categoria']==1){
 		$_SESSION['categoria']="funcionarios";}else{
 		$_SESSION['categoria'] ="cliente";}
 	$categoria=$_SESSION['categoria'];
@@ -24,7 +24,7 @@ if (isset($_POST['submit'])) {
 			//"<br> Telefone: " . $row["Telefone"]. 
 			//"<br> Email: " . $row["Email"]. 
 			//"<br> Senha: " . $row["Senha"].
-			//"<br> Classeid: " . $row["Classeid"]."<br> <br>";
+			//"<br> idcategoria: " . $row["idcategoria"]."<br> <br>";
 			
 			$_SESSION['submit'] = $_POST['submit'];
 			$_SESSION['nome'] = $row["nome"];
@@ -38,11 +38,11 @@ if (isset($_POST['submit'])) {
 		}
         else{  
             echo  '<script>
-                        window.location.href = "login.php";
-                        alert("Login failed. Invalid email or password! ")
-                    </script>';
+                        '//.'window.location.href = "login.php";'
+                        .'alert("Login failed. Invalid email or password! ")'
+                    .'</script>';
         }
-		if($_SESSION['classe'] == "1"){
+		if($_SESSION['categoria'] == "1"){
 			print "
 			<script>
 				alert('Olá adm')

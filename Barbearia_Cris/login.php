@@ -15,13 +15,11 @@ session_start();
         $email = $_POST['email'];
         $senha = $_POST['senha'];
         
-        $sql = "SELECT usuario.Email, usuario.Senha, usuario.Classeid, 
-        cliente.Nome, cliente.Sobrenome, cliente.Telefone 
-        FROM usuario JOIN cliente ON usuario.idcliente = cliente.idcliente WHERE Email = '$email' and Senha ='$senha';";  
+        $sql = "SELECT Email, Senha 
+        FROM * WHERE Email = '$email' and Senha ='$senha';";  
         $result = mysqli_query($conn, $sql);  
         $row = mysqli_fetch_array($result, MYSQLI_ASSOC);  
         $count = mysqli_num_rows($result);
-
         if($count == 1 ){
         }
         else{  
