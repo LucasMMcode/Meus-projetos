@@ -20,12 +20,13 @@
             background-color: #00763D;
         }
         </style>
+            <?php
+	session_start();?>
     </head>
     <body onload="geraitens();"  style="background-color: white">
     <header>
         <div class="loginimg">
             <?php
-	session_start();
              if (isset($_SESSION['submit'])) {if($_SESSION['nome']!=null){ print "<p class='loginnome'>". $_SESSION['nome']." ".$_SESSION['sobrenome']." </p>";
             }}?>
 		<a href="login.php"><img src="<?php if (isset($_SESSION['submit'])) {if($_SESSION['nome']==null){echo'img/login2.png';}else{echo'img/login.png';}}else{echo'img/login2.png';}?>" width ="60px""></a>
@@ -82,7 +83,18 @@ window.onclick = function(event) {
 
         
         <main class="areaprodutos">
-            <ul class="produtos" id="geraitens"></ul>
+
+            <ul class="produtos" id="geraitens"><?php
+            for($i=0;$i<$lista;$i++){
+              echo '<li><h2> '.
+              $nome[$i].' </h2><img src="img/'.
+              $imagens[$i].'"width=200px height=200px><p class="Descrição"> '.
+              $nome[$i].' </p><p class="Preço"> '.
+              $preço[$i].' </p></li>';
+            }
+            
+            
+            ?></ul>
         </main>
 
         <footer>

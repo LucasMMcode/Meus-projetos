@@ -4,6 +4,9 @@ let preço=1;//["R$68,97","R$45,39","a","b","c","d"];
 
 function geraitens(){
 for(let i= 0;i < 9 /* nome.length11*/ ;i++)
-    document.getElementById("geraitens").innerHTML+='<a href="#" class="itensindex"><li><h2> '+nome/*[i]*/+' </h2><img src="img/'+imagens/*[i]*/+'"width=200px height=200px><p class="Descrição"> '+nome/*[i]*/+' </p><p class="Preço"> '+preço/*[i]*/+' </p></li></a>'
+    document.getElementById("geraitens").innerHTML+='<li><h2> '
++nome/*[i]*/+' </h2><img src="img/'
++imagens/*[i]*/+'"width=200px height=200px><p class="Descrição"> '
++nome/*[i]*/+' </p><p class="Preço"> '
++preço/*[i]*/+' </p></li>'
 }
-
