@@ -91,14 +91,15 @@ window.onclick = function(event) {
             $result = $conn->query($sql);
             $idproduto= array();
             $nome= array();
-            $imagens= array();
+            $caminhoimg= array();
             $preco= array();
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {	
                 $idproduto[] = $row["IdProduto"];
                 $nome[] = $row["Nome"];
                 $preco[] = $row["Preco"];
-                $imagens[] = $row["Caminhoimg"];
+                $caminhoimg[] = $row["Caminhoimg"];
+                $img[] = $row["Img"];
                 }
             }
 
@@ -110,7 +111,7 @@ window.onclick = function(event) {
             for($i=0;$i<$lista;$i++){
               echo '<li><h2> '.
               $nome[$i].' </h2><img src="'.
-              $imagens[$i].'"width=200px height=200px><p class="Descrição"> '.
+              $caminhoimg[$i].'"width=200px height=200px><p class="Descrição"> '.
               $nome[$i].' </p><p class="Preço"> '.
               $preco[$i].' </p></li>';
             }
