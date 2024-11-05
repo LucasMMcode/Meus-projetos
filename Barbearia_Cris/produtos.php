@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+            <?php
+	session_start();
+  include "conexao.php"
+  ?>
 <html lang="pt-br" >
     <head>
         <meta charset="UTF-8">
@@ -20,10 +24,8 @@
             background-color: #00763D;
         }
         </style>
-            <?php
-	session_start();?>
     </head>
-    <body onload="geraitens();"  style="background-color: white">
+    <body  style="background-color: white">
     <header>
         <div class="loginimg">
             <?php
@@ -85,12 +87,32 @@ window.onclick = function(event) {
         <main class="areaprodutos">
 
             <ul class="produtos" id="geraitens"><?php
+            $sql = "SELECT * FROM produtos";
+            $result = $conn->query($sql);
+            $idproduto= array();
+            $nome= array();
+            $imagens= array();
+            $preco= array();
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {	
+                $idproduto[] = $row["IdProduto"];
+                $nome[] = $row["Nome"];
+                $preco[] = $row["Preco"];
+                $imagens[] = $row["Caminhoimg"];
+                }
+            }
+
+
+
+
+            
+            $lista = count($idproduto);
             for($i=0;$i<$lista;$i++){
               echo '<li><h2> '.
-              $nome[$i].' </h2><img src="img/'.
+              $nome[$i].' </h2><img src="'.
               $imagens[$i].'"width=200px height=200px><p class="Descrição"> '.
               $nome[$i].' </p><p class="Preço"> '.
-              $preço[$i].' </p></li>';
+              $preco[$i].' </p></li>';
             }
             
             
