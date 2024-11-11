@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 04/11/2024 às 14:38
+-- Tempo de geração: 11/11/2024 às 14:05
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.0.28
 
@@ -103,6 +103,20 @@ INSERT INTO `funcionarios` (`idfuncionario`, `idusuario`, `nome`, `sobrenome`, `
 -- --------------------------------------------------------
 
 --
+-- Estrutura para tabela `produtos`
+--
+
+CREATE TABLE `produtos` (
+  `IdProduto` int(11) NOT NULL,
+  `Nome` varchar(15) NOT NULL,
+  `Preco` decimal(5,2) NOT NULL,
+  `Caminhoimg` varchar(255) NOT NULL,
+  `Img` longblob NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura para tabela `usuario`
 --
 
@@ -155,6 +169,12 @@ ALTER TABLE `funcionarios`
   ADD KEY `idusuario` (`idusuario`);
 
 --
+-- Índices de tabela `produtos`
+--
+ALTER TABLE `produtos`
+  ADD PRIMARY KEY (`IdProduto`);
+
+--
 -- Índices de tabela `usuario`
 --
 ALTER TABLE `usuario`
@@ -182,6 +202,12 @@ ALTER TABLE `cliente`
 --
 ALTER TABLE `funcionarios`
   MODIFY `idfuncionario` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de tabela `produtos`
+--
+ALTER TABLE `produtos`
+  MODIFY `IdProduto` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `usuario`
