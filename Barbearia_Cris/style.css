@@ -100,13 +100,13 @@ nav a:hover,.dropbtn:hover {
     text-decoration: underline;
 }
 
-.produtos {
+.cortes {
 	width: 940px;
 	margin: 0px auto;
 	padding: 50px 0;
 }
 
-.produtos li {
+.cortes li {
     display: inline-block;
     text-align: center;
     width: 30%;
@@ -118,25 +118,25 @@ nav a:hover,.dropbtn:hover {
     border-radius: 10px;
 }
 
-.produtos li:hover {
+.cortes li:hover {
     border-color: #C78C19;
 }
 
-.produtos li:active {
+.cortes li:active {
     border-color: #088C19;    
 }
 
-.produtos li:hover h2 {
+.cortes li:hover h2 {
     font-size: 32px;
 }
 
-.produtos h2 {
+.cortes h2 {
     color: #000000;
 	font-size: 30px;
 	font-weight: bold;
 }
 
-.produtos p {
+.cortes p {
 	
     color: #000000;
 }
@@ -433,3 +433,61 @@ td, th {
     width: 50px;
     margin: 10px;
 }
+.cadastrap{
+    margin-left: 42.5%;
+    margin-top:1%;
+    margin-bottom: -10%;
+}
+.cadastrap a {
+    color: #000000;
+    font-weight: bold;
+    font-size: 22px;
+    text-decoration: none;
+}
+
+.cadastrap a:hover {
+    color: #C78C19;
+    text-decoration: underline;
+}
+
+.produtos {
+	width: 940px;
+	margin: 0px auto;
+	padding: 50px 0;
+    
+}
+
+.produtos li {
+    display: inline-block;
+    text-align: center;
+    width: 30%;
+    vertical-align: top;
+    margin: 0 1.5% 30px;
+    padding: 30px 20px;
+    box-sizing: border-box;
+    border: 2px solid #000000;
+    border-radius: 10px;
+}
+
+.produtos li:hover {
+    border-color: #C78C19;
+}
+
+.produtos li:active {
+    border-color: #088C19;    
+}
+
+.produtos li:hover h2 {
+    font-size: 32px;
+}
+
+.produtos h2 {
+    color: #000000;
+	font-size: 30px;
+	font-weight: bold;
+}
+
+.produtos p {
+    color: #000000;
+}
+

@@ -1,5 +1,6 @@
 <?php
 session_start();
+include "conexa.php";
 include "includes/cabecalho.inc"
 ?>
 

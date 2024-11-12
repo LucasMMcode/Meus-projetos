@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 11/11/2024 às 14:05
+-- Tempo de geração: 12/11/2024 às 16:32
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.0.28
 
@@ -110,9 +110,15 @@ CREATE TABLE `produtos` (
   `IdProduto` int(11) NOT NULL,
   `Nome` varchar(15) NOT NULL,
   `Preco` decimal(5,2) NOT NULL,
-  `Caminhoimg` varchar(255) NOT NULL,
-  `Img` longblob NOT NULL
+  `Caminhoimg` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `produtos`
+--
+
+INSERT INTO `produtos` (`IdProduto`, `Nome`, `Preco`, `Caminhoimg`) VALUES
+(1, 'Produtos', 20.30, 'produtos.png');
 
 -- --------------------------------------------------------
 
@@ -207,7 +213,7 @@ ALTER TABLE `funcionarios`
 -- AUTO_INCREMENT de tabela `produtos`
 --
 ALTER TABLE `produtos`
-  MODIFY `IdProduto` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `IdProduto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de tabela `usuario`
