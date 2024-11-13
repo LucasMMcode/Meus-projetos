@@ -30,21 +30,11 @@ include "includes/cabecalho.inc"
             }
 
             
-            for($i=0;$i<count($idproduto);$i++){
-              echo '<a><li><h2> '.$nome[$i].' </h2>
-              <img src="img/'.$caminhoimg[$i].'"width=250px height=250px>
-              <p class="Descrição"> '.$nome[$i].'</p>
-              <p class="Preço"> '.$preco[$i].' </p>
-              </li></a>';
-              echo '<a><li><h2> '.$nome[$i].' </h2>
-              <img src="img/'.$caminhoimg[$i].'"width=250px height=250px>
-              <p class="Descrição"> '.$nome[$i].'</p>
-              <p class="Preço"> '.$preco[$i].' </p>
-              </li></a>';
-              echo '<a><li><h2> '.$nome[$i].' </h2>
-              <img src="img/'.$caminhoimg[$i].'"width=250px height=250px>
-              <p class="Descrição"> '.$nome[$i].'</p>
-              <p class="Preço"> '.$preco[$i].' </p>
+            for($i=-2;$i<count($idproduto);$i++){
+              echo '<a><li><h2> '.$nome[$i%1].' </h2>
+              <img src="img/'.$caminhoimg[$i%1].'"width=250px height=250px>
+              <p class="Descrição"> '.$nome[$i%1].'</p>
+              <p class="Preço"> '.$preco[$i%1].' </p>
               </li></a>';
             }
           ?></ul>
