@@ -1,6 +1,6 @@
 <?php
 session_start();
-include "conexa.php";
+include "conexao.php";
 include "includes/cabecalho.inc"
 ?>
 
