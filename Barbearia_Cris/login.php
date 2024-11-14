@@ -1,6 +1,7 @@
 <html lang="pt-br" >
     <head>
         <meta charset="UTF-8">
+        <link rel="icon" href="./img/logo.png">
         <title>Login - Barbearia</title>
 
         <link rel='stylesheet' href='Reset_css.css'>
