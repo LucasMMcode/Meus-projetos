@@ -15,7 +15,7 @@
              if (isset($_SESSION['submit'])) {if($_SESSION['nome']!=null){ print "<p class='loginnome'>". $_SESSION['nome']." ".$_SESSION['sobrenome']." </p>";
             }}?>
 		<a href="login.php"><img src="<?php if (isset($_SESSION['submit'])) {if($_SESSION['nome']==null){echo'img/login2.png';}else{echo'img/login.png';}}else{echo'img/login2.png';}?>" width ="60px""></a>
-        <a class="sair"href="sair.php">Sair</a></div>
+        <?php if (isset($_SESSION['submit'])){echo'<a class="sair"href="sair.php">Sair</a>';}?></div>
             <div class="caixa">
                 <h1 ><img src="img/logo.png" alt="logo da Barbearia Alra" height="160px"></h1>
 

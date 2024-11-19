@@ -5,25 +5,25 @@ include "includes/cabecalho.inc"
 ?>
 
 <main>
-<form style="padding-left: 30px;" method="POST" action="codagendamento.php">
-                <label for="nomesobrenome"> Nome do produto </label>
-                <input class="input-padrão" name="nome"type="text" id="nomesobrenome" value="<?php echo $_SESSION['nome']." ".$_SESSION['sobrenome'];?>"required>
-
-                <label for="email"> Preço </label>
-                <input class="input-padrão" name="email" type="email" id="email" required value="<?php echo $_SESSION['email']?>">
-                
-                <label for="telefone"> Imagem </label>
-                <input class="input-padrão" name="telefone" type="tel" id="telefone" required value="<?php echo $_SESSION['telefone']?>"> 
-                
-                <label for="mensagem"> Nome do arquivo </label>
-                <input class="input-padrão" name="mensagen" id="mensagem" required> </input>
-
-                <br>
-
-                <input class="enviar" name="submit" type="submit" value="Agendar">
-            </form>
-
-        </main>
+    <form style="padding-left: 30px;" method="POST" action="upload.php" enctype="multipart/form-data">
+                    <label for="nomep"> Nome do produto </label>
+                    <input class="input-padrão" name="nomep"type="text" id="nomep" required>
+    
+                    <label for="preco"> Preço </label>
+                    <input class="input-padrão" name="preco" type="text" id="preco" required placeholder="XX.XX">
+                    
+                    <label for="imagem"> Imagem (use arquivos .png)</label>
+                    <input class="input-padrão" name="imagem" type="file" id="imagem" required> 
+                    
+                    <label for="nomearquivo"> Nome do arquivo </label>
+                    <input class="input-padrão" name="nomearquivo" id="nomearquivo" required placeholder="produto.png"> </input>
+    
+                    <br>
+    
+                    <input class="enviar" name="submit" type="submit" value="Cadastrar">
+                </form>
+    
+            </main>
 
 <?php
 include "includes/rodape.inc"

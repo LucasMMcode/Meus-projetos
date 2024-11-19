@@ -2,42 +2,32 @@
 <html lang="en">
 <head>
 
-    <script>
-        alert("Olá adm ")
-    </script>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <body>
-	<main><form style="padding-left: 30px;">
-        <label for="nomesobrenome"> Nome e sobrenome </label>
-        <input class="input-padrão" type="text" id="nomesobrenome" value="<?php echo $_SESSION['nome']." ".$_SESSION['sobrenome'];?>"required>
-
-        <label for="email"> Email </label>
-        <input class="input-padrão" type="email" id="email" required value="<?php echo $_SESSION['email']?>">
+	<main>
+        <form style="padding-left: 30px;" method="POST" action="codagendamento.php">
+                        <label for="nomesobrenome"> Nome do produto </label>
+                        <input class="input-padrão" name="nome"type="text" id="nomesobrenome" required>
         
-        <label for="telefone"> Telefone </label>
-        <input class="input-padrão" type="tel" id="telefone" required value="<?php echo $_SESSION['telefone']?>"> 
-
-        <label for="mensagem"> Mensagem </label>
-        <textarea class="input-padrão" cols="70" rows="10" id="mensagem" required> </textarea>
-
-        <fieldset>
-            <legend> Que dia e horário prefere ser atendido </legend>
-            <input type="date">
-            <select>
-                <option> 8:00 </option>
-                <option> 8:30 </option>
-                <option> 9:00 </option>                        
-            </select>
-        </fieldset>
-
-        <br>
-
-        <input class="enviar" type="submit" value="Agendar">
-    </form>
-	</main>
+                        <label for="preco"> Preço </label>
+                        <input class="input-padrão" name="preco" type="number" id="preco" required placeholder="XX,XX">
+                        
+                        <label for="imagem"> Imagem </label>
+                        <input class="input-padrão" name="imagem" type="file" id="imagem" required> 
+                        
+                        <label for="mensagem"> Nome do arquivo </label>
+                        <input class="input-padrão" name="mensagen" id="mensagem" required placeholder="algo.png"> </input>
+        
+                        <br>
+        
+                        <input class="enviar" name="submit" type="submit" value="Agendar">
+                    </form>
+        
+                </main>
     
 </body>
 </html>
