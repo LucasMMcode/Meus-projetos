@@ -7,7 +7,7 @@ include "includes/cabecalho.inc"
 <main>
     <form style="padding-left: 30px;" method="POST" action="upload.php" enctype="multipart/form-data">
                     <label for="nomep"> Nome do produto </label>
-                    <input class="input-padrão" name="nomep"type="text" id="nomep" required>
+                    <input class="input-padrão" name="nomep"type="text" id="nomep" required minlength="1" maxlength="19">
     
                     <label for="preco"> Preço </label>
                     <input class="input-padrão" name="preco" type="text" id="preco" required placeholder="XX.XX">

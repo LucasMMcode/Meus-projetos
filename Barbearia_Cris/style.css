@@ -1,5 +1,5 @@
 body {
-    font-family: 'Montserrat', sans-serif;
+    font-family:Monospace;
 }
 
 header {
@@ -487,12 +487,12 @@ td, th {
 
 .produtos h2 {
     color: #000000;
-	font-size: 19px;
+	font-size: 25px;
 	font-weight: bold;
 }
 
 .produtos li:hover h2 {
-    font-size: 21px;
+    font-size: 30px;
 }
 
 .produtos p {
