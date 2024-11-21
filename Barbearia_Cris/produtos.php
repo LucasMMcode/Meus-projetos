@@ -36,6 +36,7 @@ include "includes/cabecalho.inc"
               <p class="Descrição"> '.$nome[$i].'</p>
               <p class="Preço"> '.$preco[$i].' </p>
               </li></a>';
+                            
             }
           ?></ul>
         </main>

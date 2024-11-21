@@ -30,15 +30,7 @@
                         <li><a href="produtos.php">produtos</a></li>
     	                  <li><a href="index.php">Home</a></li>
                         <li><a href="cortes.php">cortes</a></li>
-    	                <li class="dropdown">
-  <button onclick="myFunction()" class="dropbtn">Contato</button>
-  <div id="myDropdown" class="dropdown-content">
-    <a href="https://web.whatsapp.com/send?phone=54984005750">whatsapp</a>
-    <a href="#facebook">Facebook</a>
-    <a href="https://www.instagram.com/barbaarao?igsh=MWtnMnllYnhpcjlwMg==">instagram</a>
-    <a href="#email">email</a>
-  </div>
-</li>
+    	                
 
 <script>
 /* When the user clicks on the button, 
@@ -61,7 +53,12 @@ window.onclick = function(event) {
   }
 }
 </script>
-    	            </ul>
+    	            </ul><ul style="margin-left:50%;margin-top:1%">
+                  <li><a href="#whats"><img src="img/whatsapp.png"width="50px"></a></li>
+                  <li><a href="#face"><img src="img/facebook.png"width="50px"></a></li>
+                  <li><a href="https://www.instagram.com/barbaarao?igsh=MWtnMnllYnhpcjlwMg=="><img src="img/instagram.png"width="50px"></a></li>
+                  <li><a href="#gmail"><img src="img/email.png"width="50px"></a></li>
+                        <ul>
                 </nav>
             </div>
         </header>

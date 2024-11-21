@@ -28,7 +28,7 @@ session_start();
             $count = mysqli_num_rows($result3);
             if($count==0){
                 
-                $sql = "INSERT INTO agendamentos (idusuario, nome, descrição, dia, hora) VALUES (\"$idusuario\",\"$nome\",\"$mensagem\",\"$dia\",\"$horario\");";
+                $sql = "INSERT INTO agendamentos (telefone,idusuario, nome, descrição, dia, hora) VALUES (\"$telefone\",\"$idusuario\",\"$nome\",\"$mensagem\",\"$dia\",\"$horario\");";
                 $result = mysqli_query($conn, $sql);
                     
                 echo'<script>
