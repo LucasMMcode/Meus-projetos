@@ -53,11 +53,11 @@ window.onclick = function(event) {
   }
 }
 </script>
-    	            </ul><ul style="margin-left:50%;margin-top:1%">
-                  <li><a href="#whats"><img src="img/whatsapp.png"width="50px"></a></li>
-                  <li><a href="#face"><img src="img/facebook.png"width="50px"></a></li>
+    	            </ul><ul class="contatos">
+                  <li><a href="https://wa.me/+555491898755"><img src="img/whatsapp.png"width="50px"></a></li>
+                  <li><a href="https://www.facebook.com/cristiano.geiger"><img src="img/facebook.png"width="50px"></a></li>
                   <li><a href="https://www.instagram.com/barbaarao?igsh=MWtnMnllYnhpcjlwMg=="><img src="img/instagram.png"width="50px"></a></li>
-                  <li><a href="#gmail"><img src="img/email.png"width="50px"></a></li>
+                  <li><a href=mailto:crisgeiger@gmail.comsubject="link HTML"><img src="img/email.png"width="50px"></a></li>
                         <ul>
                 </nav>
             </div>
