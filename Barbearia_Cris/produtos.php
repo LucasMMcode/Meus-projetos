@@ -29,13 +29,17 @@ include "includes/cabecalho.inc"
                 }
             }
 
-            
+            echo "<form>"
             for($i=0;$i<count($idproduto);$i++){
               echo '<a><li><h2> '.$nome[$i].' </h2>
-              <img src="img/'.$caminhoimg[$i].'"width=250px height=250px>
+              <img style="object-fit: cover;" src="img/'.$caminhoimg[$i].'"width=250px height=250px>
               <p class="Descrição"> '.$nome[$i].'</p>
-              <p class="Preço"> '.$preco[$i].' </p>
-              </li></a>';
+              <p class="Preço"> '.$preco[$i].' </p>';
+              if (isset($_SESSION['submit'])) {
+                if($_SESSION['categoria']==1){
+                  echo 
+                }}
+              echo'</li></a>';
                             
             }
           ?></ul>
