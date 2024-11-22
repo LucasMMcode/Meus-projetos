@@ -64,7 +64,7 @@ include "includes/cabecalho.inc";
 
 			<img class="utensilios" src="img/utensilios.jpg" alt="Utensilios de um Barbeiro">
 
-			<p> A Barbearia Barba de Arão nasceu em 2024 unindo a vontade de empreender e de proporcionar uma experiência excelente ao cliente no que se refere a beleza masculina. Trabalhamos com corte de cabelo e barba e venda de produtos especializados para o cuidado masculino. 
+			<p class="biografia"> A Barbearia Barba de Arão nasceu em 2024 unindo a vontade de empreender e de proporcionar uma experiência excelente ao cliente no que se refere a beleza masculina. Trabalhamos com corte de cabelo e barba e venda de produtos especializados para o cuidado masculino. 
 			</p>
 		</section>
 

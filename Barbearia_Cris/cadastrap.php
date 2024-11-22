@@ -9,7 +9,7 @@ include "includes/cabecalho.inc"
                     <label for="nomep"> Nome do produto (coloque até 15 caractéres)</label>
                     <input class="input-padrão" name="nomep"type="text" id="nomep" required minlength="1" maxlength="15">
     
-                    <label for="preco"> Preço (use XX.XX)</label>
+                    <label for="preco"> Preço (use XX,XX)</label>
                     <input class="input-padrão" name="preco" type="text" id="preco" required>
                     
                     <label for="imagem"> Imagem (use arquivos .png)</label>

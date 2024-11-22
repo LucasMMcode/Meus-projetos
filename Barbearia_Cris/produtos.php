@@ -7,10 +7,12 @@ include "includes/cabecalho.inc"
         
         <main class="areaprodutos">
         <?php
+
+
         if (isset($_SESSION['submit'])) {
         if($_SESSION['categoria']==1){
                             echo'<button class="cadastrap"><a href="cadastrap.php">Adicionar produtos</a></button>';
-                            }else{}}
+                            echo "<form action='produtos.php' method='GET'>";}else{}}
                             ?>
 
             <ul class="produtos" id="geraitens"><?php
@@ -26,21 +28,42 @@ include "includes/cabecalho.inc"
                 $nome[] = $row["Nome"];
                 $preco[] = $row["Preco"];
                 $caminhoimg[] = $row["Caminhoimg"];
+                $existe[] = $row["Existe"];
                 }
             }
+            
+            if (isset($_POST['submit'])) {
+              for($i=0;$i<count($idproduto);$i++){
+                $postid[$i+1] = $_GET[$i+1];
+              }
+              $nome = $_POST['nome'];
+              $email = $_POST['email'];
+              $mensagem = $_POST['mensagen'];
+              $telefone = $_POST['telefone'];
+              $dia = $_POST['dia'];
+              $horario = $_POST['horario'];
+            }
 
-            echo "<form>"
+            
             for($i=0;$i<count($idproduto);$i++){
-              echo '<a><li><h2> '.$nome[$i].' </h2>
+              if (!isset($_POST['submit'])){ if($_GET[$i+1])echo $_GET[$i+1];}else{echo '0';}
+              echo '<a><li><h2>'.' '.$nome[$i].' </h2>
               <img style="object-fit: cover;" src="img/'.$caminhoimg[$i].'"width=250px height=250px>
               <p class="Descrição"> '.$nome[$i].'</p>
               <p class="Preço"> '.$preco[$i].' </p>';
+
               if (isset($_SESSION['submit'])) {
                 if($_SESSION['categoria']==1){
-                  echo 
-                }}
+                  echo'<input type="checkbox" name="'.$idproduto[$i].'" value="1"'; if($existe[$i]){echo 'checked >';}else{echo'>';}
+                }
+              }
               echo'</li></a>';
-                            
+            }
+            if (isset($_SESSION['submit'])) {
+              if($_SESSION['categoria']==1){
+                echo '<input type="submit">';
+                echo "</form>";
+              }
             }
           ?></ul>
         </main>
