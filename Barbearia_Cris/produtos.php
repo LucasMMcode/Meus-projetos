@@ -36,12 +36,6 @@ include "includes/cabecalho.inc"
               for($i=0;$i<count($idproduto);$i++){
                 $postid[$i+1] = $_GET[$i+1];
               }
-              $nome = $_POST['nome'];
-              $email = $_POST['email'];
-              $mensagem = $_POST['mensagen'];
-              $telefone = $_POST['telefone'];
-              $dia = $_POST['dia'];
-              $horario = $_POST['horario'];
             }
 
             
