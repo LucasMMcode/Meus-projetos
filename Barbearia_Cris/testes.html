@@ -1,36 +1,131 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-
-    
+<html lang="pt-br"><head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+    <link rel="icon" href="./img/logo.png">
+    <title>Barbearia Cris</title>
+
+    <link rel="stylesheet" href="Reset_css.css">
+    <link rel="stylesheet" href="style.css">
+<style type="text/css"></style><style type="text/css" id="operaUserStyle"></style><style type="text/css"></style></head>
 <body>
-	<main>
-        <form style="padding-left: 30px;" method="POST" action="codagendamento.php">
-                        <label for="nomesobrenome"> Nome do produto </label>
-                        <input class="input-padrão" name="nome" type="text" id="nomesobrenome" required>
-        
-                        <label for="preco"> Preço </label>
-                        <input class="input-padrão" name="preco" type="number" id="preco" required placeholder="XX,XX">
-                        
-                        <label for="imagem"> Imagem </label>
-                        <input class="input-padrão" name="imagem" type="file" id="imagem" required> 
-                        
-                        <label for="mensagem"> Nome do arquivo </label>
-                        <input class="input-padrão" name="mensagen" id="mensagem" required placeholder="algo.png"> </input>
-                        </form>
-                        <select name="" id="">
-                            <option >carro</option>
-                            <option >ola</option>
-                            <option>tchau </option>
-                        </select>
-                        <br>
-                        <input class="enviar" name="submit" type="submit" value="Agendar">
-                    </form>
-                </main>
+    <header>
+    <div class="loginimg">
+        <p class="loginnome">Lucas Mitmann Magedanz </p>		<a href="login.php"><img src="img/login.png" width="60px"></a>
+    <a class="sair" href="sair.php">Sair</a></div>
+        <div class="caixa">
+            <h1><img src="img/logo.png" alt="logo da Barbearia Alra" height="160px"></h1>
+
+            <nav>
+                <ul>
+                    <li><a href="tabelahorarios.php">Tabela horários</a></li>
+                    <li><a href="produtos.php">produtos</a></li>
+                    <li><a href="index.php">Home</a></li>
+                    <li><a href="cortes.php">cortes</a></li>
+                    
+                    <style>
+                        .modal {
+                            display: none; /* Hidden by default */
+                            position: fixed; /* Stay in place */
+                            z-index: 1; /* Sit on top */
+                            padding-top: 100px; /* Location of the box */
+                            left: 0;
+                            top: 0;
+                            width: 100%; /* Full width */
+                            height: 100%; /* Full height */
+                            overflow: auto; /* Enable scroll if needed */
+                            background-color: rgb(0,0,0); /* Fallback color */
+                            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+                          }</style>
+
+                </ul><ul class="contatos">
+              <li><a href="https://wa.me/+555491898755"><img src="img/whatsapp.png" width="50px"></a></li>
+              <li><a href="https://www.facebook.com/cristiano.geiger"><img src="img/facebook.png" width="50px"></a></li>
+              <li><a href="https://www.instagram.com/barbaarao?igsh=MWtnMnllYnhpcjlwMg=="><img src="img/instagram.png" width="50px"></a></li>
+              <li><a href="mailto:crisgeiger@gmail.comsubject=&quot;link" html=""><img src="img/email.png" width="50px"></a></li>
+                   </ul></nav>
+        </div>
+    </header>
     
-</body>
-</html>
+    <main class="areaprodutos">
+    <button class="cadastrap"><a href="cadastrap.php">Adicionar produtos</a></button><form action="produtos.php" method="POST">
+        <ul class="produtos" id="geraitens">
+
+
+            
+            <li><button id="myBtn1" type="button">abrir modal</button><h2> Produtos </h2>
+          <img style="object-fit: cover;" src="img/produtos.png" width="250px" height="250px">
+          <p class="Descrição"> Produtos</p>
+          <p class="Preço"> 11,11 </p><p>Você deseja que este produto apareça</p><select name="1">
+                <option value="1">Sim</option>
+                <option value="0" selected="">Não</option>
+              </select></li>
+              
+              
+              
+              <li><button id="myBtn2" type="button">abrir modal</button><h2> shampoo cevada </h2>
+          <img style="object-fit: cover;" src="img/shampoocevadagold.png" width="250px" height="250px">
+          <p class="Descrição"> shampoo cevada</p>
+          <p class="Preço"> 22,22 </p><p>Você deseja que este produto apareça</p><select name="2">
+                <option value="1" selected="">Sim</option>
+                <option value="0">Não</option>
+              </select></li><li><button id="myBtn3" type="button">abrir modal</button><h2> shampoo qod </h2>
+          <img style="object-fit: cover;" src="img/shampoqod.png" width="250px" height="250px">
+          <p class="Descrição"> shampoo qod</p>
+          <p class="Preço"> 33,33 </p><p>Você deseja que este produto apareça</p><select name="3">
+                <option value="1">Sim</option>
+                <option value="0" selected="">Não</option>
+              </select></li><input class="enviar" type="submit" name="submit"></ul></form>
+<!-- The Modal -->
+<div id="myModal" class="modal" style="display: none;">
+
+<!-- Modal content -->
+<div class="modal-content">
+<span class="close">×</span>
+<p>Some text in the Modal...</p>
+</div>
+    </div></main><script>
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button1 that opens the modal
+var btn1 = document.getElementById("myBtn1");
+// Get the button2 that opens the modal
+var btn2 = document.getElementById("myBtn2");
+// Get the button3 that opens the modal
+var btn3 = document.getElementById("myBtn3");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn1.onclick = function() {
+modal.style.display = "block";
+}
+// When the user clicks the button, open the modal 
+btn2.onclick = function() {
+modal.style.display = "block";
+}
+// When the user clicks the button, open the modal 
+btn3.onclick = function() {
+modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+if (event.target == modal) {
+modal.style.display = "none";
+}
+}
+</script>
+
+
+
+    <footer>
+        <img src="img/logo1.png" alt="logo da barbearia">
+        <p class="copyright">© Copyright Barbearia - 2019</p>
+    </footer></body></html>

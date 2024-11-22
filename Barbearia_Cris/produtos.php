@@ -52,34 +52,76 @@ include "includes/cabecalho.inc"
 
 
             for($i=0;$i<count($idproduto);$i++){
-              echo '<a><li><h2>'.' '.$nome[$i].' </h2>
+              if($existe[$i]==1 ||isset($_SESSION['submit']) && $_SESSION['categoria']==1){
+                echo '<li>';
+                if (isset($_SESSION['submit'])) {
+                  if($_SESSION['categoria']==1){echo'<button id="myBtn'.$i.'" type="button">abrir modal</button>';}}
+              echo'<h2>'.' '.$nome[$i].' </h2>
               <img style="object-fit: cover;" src="img/'.$caminhoimg[$i].'"width=250px height=250px>
               <p class="Descrição"> '.$nome[$i].'</p>
               <p class="Preço"> '.$preco[$i].' </p>';
 
               if (isset($_SESSION['submit'])) {
                 if($_SESSION['categoria']==1){
-                  echo'<p>Você deseja que este produto aparesa</p>';
+                  echo'<p>Você deseja que este produto apareça</p>';
                   echo'<select name="'.$idproduto[$i].'">
                     <option value="1"';if($existe[$i]) {echo 'selected';}echo'>Sim</option>
                     <option value="0"';if(!$existe[$i]) {echo 'selected';}echo'>Não</option>
                   </select>';
                 }
               }
-              echo'</li></a>';
+              echo'</li>';
+              echo '<script>
+var btn'.$i.' = document.getElementById("myBtn'.$i.'");
+
+btn'.$i.'.onclick = function() {
+  modal.style.display = "block";
+}
+</script>';
+            
+            
+            }
             }
             if (isset($_SESSION['submit'])) {
               if($_SESSION['categoria']==1){
-                echo '<input class="Submitp"type="submit" name="submit">';
-                echo "</form>";
+                echo '<input class="enviar"type="submit" name="submit">';
+                echo '</form>';
               }
             }
-          ?></ul>
-        </main>
+          ?>
+          <!-- The Modal -->
+          <div id="myModal" class="modal">
+          
+            <!-- Modal content -->
+            <div class="modal-content">
+              <span class="close">&times;</span>
+              <p>Some text in the Modal..</p>
+            </div>
+          </div></ul>
+        </main><script>
 
-        <footer>
-            <img src="img/logo1.png" alt="logo da barbearia" >
-            <p class="copyright">&copy; Copyright Barbearia - 2019</p>
-        </footer>
+// Get the modal
+var modal = document.getElementById("myModal");
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+    <footer>
+    <img src="img/logo1.png" alt="logo da barbearia" >
+    <p class="copyright">&copy; Copyright Barbearia - 2019</p>
+</footer>
     </body>
+
 </html>

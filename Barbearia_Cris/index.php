@@ -62,7 +62,7 @@ include "includes/cabecalho.inc";
 		<section class="principal">
 			<h2 class="titulo-principal">Biografia</h2>
 
-			<img class="utensilios" src="img/utensilios.jpg" alt="Utensilios de um Barbeiro">
+			<img class="utensilios" src="img/utensilios.png" alt="Utensilios de um Barbeiro">
 
 			<p class="biografia"> A Barbearia Barba de Arão nasceu em 2024 unindo a vontade de empreender e de proporcionar uma experiência excelente ao cliente no que se refere a beleza masculina. Trabalhamos com corte de cabelo e barba e venda de produtos especializados para o cuidado masculino. 
 			</p>
@@ -89,7 +89,7 @@ include "includes/cabecalho.inc";
 					<li class="itens">Pontualidade</li>
 					<li class="itens">Limpeza</li>
 					<li class="itens">Venda de produtos</li>
-				</ul><img class="imagem-beneficios" src="img/Beneficios.jpg"><br><br><br><br><br>
+				</ul><img class="imagem-beneficios" src="img/ambiente.png"><br><br><br><br><br>
 				<div class="igwrapper"><style>.igwrapper{background:#fff;position:relative}.igwrapper iframe{border:0;position:relative;z-index:2}.igwrapper a{color:rgba(0,0,0,0);position:absolute;left:0;top:0;z-index:0}</style><a href="https://fnfmods.net/fnf-test/">FNF Test</a><script async src="https://www.instagram.com/embed.js"></script><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/barbaarao?igsh=MWtnMnllYnhpcjlwMg==" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:658px; min-width:326px; padding:0; width:99.375%;width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"></blockquote></div>
 			</div>
 	</main>
