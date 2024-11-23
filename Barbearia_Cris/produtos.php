@@ -7,6 +7,14 @@ include "includes/cabecalho.inc"
         
         <main class="areaprodutos">
         <?php
+        if (isset($_POST['submite'])) {
+          $nome=$_POST["nomep"];
+          $preco=$_POST["preco"];
+          $id=$_POST["idp"];
+          $sql = "UPDATE `produtos` SET `Nome`='$nome',`Preco`='$preco' WHERE IdProduto = $id";
+              $result = $conn->query($sql);
+        }
+
         if (isset($_SESSION['submit'])) {
         if($_SESSION['categoria']==1){
                             echo'<button class="cadastrap"><a href="cadastrap.php">Adicionar produtos</a></button>';}else{}}
@@ -55,7 +63,7 @@ include "includes/cabecalho.inc"
               if($existe[$i]==1 ||isset($_SESSION['submit']) && $_SESSION['categoria']==1){
                 echo '<li>';
                 if (isset($_SESSION['submit'])) {
-                  if($_SESSION['categoria']==1){echo'<button id="myBtn'.$i.'" type="button">abrir modal</button>';}}
+                  if($_SESSION['categoria']==1){echo'<button id="myBtn" class="myBtn btn" type="button">Editar</button>';}}
               echo'<h2>'.' '.$nome[$i].' </h2>
               <img style="object-fit: cover;" src="img/'.$caminhoimg[$i].'"width=250px height=250px>
               <p class="Descrição"> '.$nome[$i].'</p>
@@ -78,91 +86,67 @@ include "includes/cabecalho.inc"
             if (isset($_SESSION['submit'])) {
               if($_SESSION['categoria']==1){
                 echo '<input class="enviar"type="submit" name="submit">';
-                echo '</form>';
+                echo '</form>';?>
+                <script>
+                // Get the modal
+                var modal = document.getElementsByClassName("modal");
+                
+                // Get the <span> element that closes the modal
+                var span = document.getElementsByClassName("close")
+              
+                var btn = document.getElementsByClassName("myBtn");
+
+
+                </script>
+                
+                <?php
                 for($i=0;$i<count($idproduto);$i++){
                   echo      '<div>
-                  <style>
-                #myModal'.$i.'{
-                display: none; /* Hidden by default */}
-                /* The Modal (background) */
-                .modal'.$i.' {
-                    display: none; /* Hidden by default */
-                    position: fixed; /* Stay in place */
-                    z-index: 1; /* Sit on top */
-                    padding-top: 50px; /* Location of the box */
-                    left: 0;
-                    top: 0;
-                    width: 100%; /* Full width */
-                    height: 100%; /* Full height */
-                    overflow: auto; /* Enable scroll if needed */
-                    background-color: rgb(0,0,0); /* Fallback color */
-                    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-                  } 
-                  
-                  /* Modal Content */
-                  .modal-content'.$i.' {
-                    background-color: #fefefe;
-                    margin: auto;
-                    padding: 1%;
-                    border: 1px solid #888;
-                    width: 80%;
-                  }
-                  
-                  /* The Close Button */
-                  .close'.$i.' {
-                    color: #aaaaaa;
-                    float: right;
-                    font-size: 28px;
-                    font-weight: bold;
-                  }
-                  
-                  .close'.$i.':hover,
-                  .close'.$i.':focus {
-                    color: #000;
-                    text-decoration: none;
-                    cursor: pointer;
-                  }</style>
                   
                           <!-- The Modal -->
-                          <div id="myModal'.$i.'" class="modal'.$i.'">
+                          <div id="myModal'.$i.'" class="modal">
                           
                             <!-- Modal content -->
-                            <div class="modal-content'.$i.'">
-                              <span class="close'.$i.'">&times;</span>
-                              <p>Some text in the Modal..</p>
+                            <div class="modal-content">
+                              <span class="close">&times;</span>
+                  
+    <form style="padding-left: 30px;" method="POST" action="produtos.php" enctype="multipart/form-data">
+    <input type="hidden" value ="'.$idproduto[$i].'" name="idp">
+
+                    <label for="nomep"> Nome do produto (coloque até 15 caractéres)</label>
+                    <input class="input-padrão" name="nomep"type="text" id="nomep" required minlength="1" maxlength="15" value="'.$nome[$i].'">
+    
+                    <label for="preco"> Preço (use XX,XX)</label>
+                    <input class="input-padrão" name="preco" type="text" id="preco" required value="'.$preco[$i].' ">
+                    
+                    <br>
+    
+                    <input class="enviar" name="submite" type="submit" value="Editar">
+                </form>
                             </div>
                           </div>
-                          <script>
-                  // Get the modal
-                  var modal'.$i.' = document.getElementById("myModal'.$i.'");
-                
-                  // Get the <span> element that closes the modal
-                  var span'.$i.' = document.getElementsByClassName("close'.$i.'")
-                
-                  var btn'.$i.' = document.getElementById("myBtn'.$i.'");
-                
-                  btn'.$i.'.onclick = function() {
-                    modal'.$i.'.style.display = "block";
-                  }['.$i.'];
-                
-                
-                  // When the user clicks on <span> (x), close the modal
-                  span'.$i.'.onclick = function() {
-                    modal'.$i.'.style.display = "none";
-                  }
-                
-                  // When the user clicks anywhere outside of the modal, close it
-                  window.onclick = function(event'.$i.') {
-                    if (event'.$i.'.target == modal'.$i.') {
-                      modal'.$i.'.style.display = "none";
-                    }
-                  }
-                  </script></div>';}
+                          ';}
+                    echo '<script>';
+                          for($i=0;$i<count($idproduto);$i++){
+                            echo'
+                            btn['.$i.'].onclick = function() {
+                    modal['.$i.'].style.display = "block";
+                  }';}
+                  for($i=0;$i<count($idproduto);$i++){
+                echo'
+                  span['.$i.'].onclick = function() {
+                    modal['.$i.'].style.display = "none";
+                  }';}
               }
             }
-          ?><?php   
-          
-  ?></ul>
+          ?></script>
+          <script>    
+          window.onclick = function(event) {
+            if (event.target == modal) {
+              modal.style.display = "none";
+            }
+          }
+          </script></div> </ul>
         </main>
   
     <footer>

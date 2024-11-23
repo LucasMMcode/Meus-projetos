@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 21/11/2024 às 01:58
+-- Tempo de geração: 23/11/2024 às 16:13
 -- Versão do servidor: 8.0.17
 -- Versão do PHP: 8.2.12
 
@@ -42,8 +42,8 @@ CREATE TABLE `agendamentos` (
 --
 
 INSERT INTO `agendamentos` (`id`, `idusuario`, `nome`, `telefone`, `dia`, `hora`, `descrição`) VALUES
-(16, 1, 'Lucas Mitmann Magedanz', 54984005750, '2024-11-21', '11:00:00', 'corte de cabelo'),
-(17, 7, 'Cristiano Geiger', 54991898755, '2024-11-21', '10:30:00', 'corte de cabelo');
+(1, 1, 'Lucas Mitmann Magedanz', 54984005750, '2024-11-21', '11:00:00', 'corte de cabelo'),
+(2, 7, 'Cristiano Geiger', 54991898755, '2024-11-21', '10:30:00', 'corte de cabelo');
 
 -- --------------------------------------------------------
 
@@ -120,18 +120,19 @@ INSERT INTO `funcionarios` (`idfuncionario`, `idusuario`, `nome`, `sobrenome`, `
 CREATE TABLE `produtos` (
   `IdProduto` int(11) NOT NULL,
   `Nome` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `Preco` decimal(5,2) NOT NULL,
-  `Caminhoimg` varchar(255) COLLATE utf8mb4_general_ci NOT NULL
+  `Preco` char(6) COLLATE utf8mb4_general_ci NOT NULL,
+  `Caminhoimg` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `Existe` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Despejando dados para a tabela `produtos`
 --
 
-INSERT INTO `produtos` (`IdProduto`, `Nome`, `Preco`, `Caminhoimg`) VALUES
-(1, 'Produtos', 20.30, 'produtos.png'),
-(2, 'Shampoo Cevada Gold', 40.00, 'shampoocevadagold.png'),
-(3, 'shampoo qod', 25.00, 'shampoqod.png');
+INSERT INTO `produtos` (`IdProduto`, `Nome`, `Preco`, `Caminhoimg`, `Existe`) VALUES
+(1, 'Produtos', '11,22', 'produtos.png', 0),
+(2, 'shampoo cevada', '22,22', 'shampoocevadagold.png', 0),
+(3, 'shampoo qod', '33,33', 'shampoqod.png', 0);
 
 -- --------------------------------------------------------
 
@@ -211,7 +212,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de tabela `agendamentos`
 --
 ALTER TABLE `agendamentos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de tabela `cliente`
@@ -229,7 +230,7 @@ ALTER TABLE `funcionarios`
 -- AUTO_INCREMENT de tabela `produtos`
 --
 ALTER TABLE `produtos`
-  MODIFY `IdProduto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `IdProduto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de tabela `usuario`
