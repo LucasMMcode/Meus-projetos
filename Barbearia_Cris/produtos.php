@@ -7,15 +7,15 @@ include "includes/cabecalho.inc"
         
         <main class="areaprodutos">
         <?php
-
-
         if (isset($_SESSION['submit'])) {
         if($_SESSION['categoria']==1){
-                            echo'<button class="cadastrap"><a href="cadastrap.php">Adicionar produtos</a></button>';
-                            echo "<form action='produtos.php' method='POST'>";}else{}}
+                            echo'<button class="cadastrap"><a href="cadastrap.php">Adicionar produtos</a></button>';}else{}}
                             ?>
 
             <ul class="produtos" id="geraitens"><?php
+            if (isset($_SESSION['submit'])) {
+              if($_SESSION['categoria']==1){
+                                  echo "<form action='produtos.php' method='POST'>";}else{}}
             $sql = "SELECT * FROM produtos";
             $result = $conn->query($sql);
             $idproduto= array();
@@ -71,13 +71,6 @@ include "includes/cabecalho.inc"
                 }
               }
               echo'</li>';
-              echo '<script>
-var btn'.$i.' = document.getElementById("myBtn'.$i.'");
-
-btn'.$i.'.onclick = function() {
-  modal.style.display = "block";
-}
-</script>';
             
             
             }
@@ -86,38 +79,92 @@ btn'.$i.'.onclick = function() {
               if($_SESSION['categoria']==1){
                 echo '<input class="enviar"type="submit" name="submit">';
                 echo '</form>';
+                for($i=0;$i<count($idproduto);$i++){
+                  echo      '<div>
+                  <style>
+                #myModal'.$i.'{
+                display: none; /* Hidden by default */}
+                /* The Modal (background) */
+                .modal'.$i.' {
+                    display: none; /* Hidden by default */
+                    position: fixed; /* Stay in place */
+                    z-index: 1; /* Sit on top */
+                    padding-top: 50px; /* Location of the box */
+                    left: 0;
+                    top: 0;
+                    width: 100%; /* Full width */
+                    height: 100%; /* Full height */
+                    overflow: auto; /* Enable scroll if needed */
+                    background-color: rgb(0,0,0); /* Fallback color */
+                    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+                  } 
+                  
+                  /* Modal Content */
+                  .modal-content'.$i.' {
+                    background-color: #fefefe;
+                    margin: auto;
+                    padding: 1%;
+                    border: 1px solid #888;
+                    width: 80%;
+                  }
+                  
+                  /* The Close Button */
+                  .close'.$i.' {
+                    color: #aaaaaa;
+                    float: right;
+                    font-size: 28px;
+                    font-weight: bold;
+                  }
+                  
+                  .close'.$i.':hover,
+                  .close'.$i.':focus {
+                    color: #000;
+                    text-decoration: none;
+                    cursor: pointer;
+                  }</style>
+                  
+                          <!-- The Modal -->
+                          <div id="myModal'.$i.'" class="modal'.$i.'">
+                          
+                            <!-- Modal content -->
+                            <div class="modal-content'.$i.'">
+                              <span class="close'.$i.'">&times;</span>
+                              <p>Some text in the Modal..</p>
+                            </div>
+                          </div>
+                          <script>
+                  // Get the modal
+                  var modal'.$i.' = document.getElementById("myModal'.$i.'");
+                
+                  // Get the <span> element that closes the modal
+                  var span'.$i.' = document.getElementsByClassName("close'.$i.'")
+                
+                  var btn'.$i.' = document.getElementById("myBtn'.$i.'");
+                
+                  btn'.$i.'.onclick = function() {
+                    modal'.$i.'.style.display = "block";
+                  }['.$i.'];
+                
+                
+                  // When the user clicks on <span> (x), close the modal
+                  span'.$i.'.onclick = function() {
+                    modal'.$i.'.style.display = "none";
+                  }
+                
+                  // When the user clicks anywhere outside of the modal, close it
+                  window.onclick = function(event'.$i.') {
+                    if (event'.$i.'.target == modal'.$i.') {
+                      modal'.$i.'.style.display = "none";
+                    }
+                  }
+                  </script></div>';}
               }
             }
-          ?>
-          <!-- The Modal -->
-          <div id="myModal" class="modal">
+          ?><?php   
           
-            <!-- Modal content -->
-            <div class="modal-content">
-              <span class="close">&times;</span>
-              <p>Some text in the Modal..</p>
-            </div>
-          </div></ul>
-        </main><script>
-
-// Get the modal
-var modal = document.getElementById("myModal");
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
-</script>
+  ?></ul>
+        </main>
+  
     <footer>
     <img src="img/logo1.png" alt="logo da barbearia" >
     <p class="copyright">&copy; Copyright Barbearia - 2019</p>
