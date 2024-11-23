@@ -20,16 +20,16 @@
                 <h1 ><img src="img/logo.png" alt="logo da Barbearia Alra" height="160px"></h1>
 
                 <nav>
-    	            <ul>
+    	            <ul class="paginas">
 						<?php
                         if (isset($_SESSION['submit'])) {
                         if($_SESSION['categoria']==1){
                             echo'<li><a href="tabelahorarios.php">Tabela horários</a></li>';
                             }else{}}
                             ?>
-                        <li><a href="produtos.php">produtos</a></li>
     	                  <li><a href="index.php">Home</a></li>
                         <li><a href="cortes.php">cortes</a></li>
+                        <li><a href="produtos.php">produtos</a></li>
     	                
 
 <script>
@@ -54,10 +54,10 @@ window.onclick = function(event) {
 }
 </script>
     	            </ul><ul class="contatos">
-                  <li><a href="https://wa.me/+555491898755"><img src="img/whatsapp.png"width="50px"></a></li>
-                  <li><a href="https://www.facebook.com/cristiano.geiger"><img src="img/facebook.png"width="50px"></a></li>
-                  <li><a href="https://www.instagram.com/barbaarao?igsh=MWtnMnllYnhpcjlwMg=="><img src="img/instagram.png"width="50px"></a></li>
-                  <li><a href=mailto:crisgeiger@gmail.comsubject="link HTML"><img src="img/email.png"width="50px"></a></li>
+                  <li><a href="https://wa.me/+555491898755"><img src="img/whatsapp.png"width="42px"></a></li>
+                  <li><a href="https://www.facebook.com/cristiano.geiger"><img src="img/facebook.png"width="40px"></a></li>
+                  <li><a href="https://www.instagram.com/barbaarao?igsh=MWtnMnllYnhpcjlwMg=="><img src="img/instagram.png"width="36px"></a></li>
+                  <li><a href=mailto:crisgeiger@gmail.comsubject="link HTML"><img src="img/email.png"width="36px"></a></li>
                         <ul>
                 </nav>
             </div>

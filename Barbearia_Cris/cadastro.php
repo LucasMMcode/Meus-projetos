@@ -17,7 +17,7 @@ session_start();
     <body class="login">
         <div class="page">
             <form method="POST" class="formLogin" action="codcadastro.php" onsubmit="return isvalid()">
-                <h1>Criar conta</h1>
+                <h1>Dados de login.</h1>
             <p>Digite os seus dados de acesso no campo abaixo.</p>
             <label for="email">E-mail</label>
             <input type="email" name="email" placeholder="Digite seu e-mail" autofocus="true" required/>
@@ -26,7 +26,7 @@ session_start();
             <label for="senhac">Repitir Senha </label>
             <input type="password" name="senhac"placeholder="Repita sua senha" required/>
             <br>
-            <input type="submit" name ="submit" value="Criar conta" class="btn" required/>
+            <input type="submit" name ="submit" value="Complementar cadastro" class="btn" required/>
             <a href="login.php">Possui conta?</a>
         </form>
     </div>

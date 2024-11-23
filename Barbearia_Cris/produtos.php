@@ -63,7 +63,7 @@ include "includes/cabecalho.inc"
               if($existe[$i]==1 ||isset($_SESSION['submit']) && $_SESSION['categoria']==1){
                 echo '<li>';
                 if (isset($_SESSION['submit'])) {
-                  if($_SESSION['categoria']==1){echo'<button id="myBtn" class="myBtn btn" type="button">Editar</button>';}}
+                  if($_SESSION['categoria']==1){echo'<button id="myBtn" class="myBtn" type="button">Editar</button>';}}
               echo'<h2>'.' '.$nome[$i].' </h2>
               <img style="object-fit: cover;" src="img/'.$caminhoimg[$i].'"width=250px height=250px>
               <p class="Descrição"> '.$nome[$i].'</p>

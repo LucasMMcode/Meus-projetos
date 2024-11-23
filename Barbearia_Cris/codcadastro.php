@@ -23,7 +23,7 @@ session_start();
                 $sql = "INSERT INTO usuario (Email,Senha,idcategoria) VALUES (\"$email\",\"$senha\",1);";
                 $result = mysqli_query($conn, $sql);
                 echo'<script>
-                window.location.href = "cadastro copy.php";
+                window.location.href = "dadospessoais.php";
                 </script>';
             }
         }

@@ -43,7 +43,7 @@ header {
 
 nav {
     position: absolute;
-    top: 80px;
+    top: 60px;
     right: 0;
 }
 
@@ -56,13 +56,17 @@ nav a,.dropbtn {
     text-transform: uppercase;
     color: #000000;
     font-weight: bold;
-    font-size: 22px;
+    font-size: 24px;
     text-decoration: none;
 }
 
 nav a:hover,.dropbtn:hover {
     color: #C78C19;
     text-decoration: underline;
+}
+
+.paginas{
+    padding-bottom: 10px;
 }
 
 .contatos{
@@ -85,7 +89,7 @@ nav a:hover,.dropbtn:hover {
     text-align: center;
     width: 30%;
     vertical-align: top;
-    margin: 0 1.5% 20px;
+    margin: 0 1.4135% 20px;
     padding: 30px 20px;
     box-sizing: border-box;
     border: 2px solid #000000;
@@ -428,7 +432,7 @@ td, th {
 .produtos {
 	width: 940px;
 	margin: 0px auto;
-	padding: 50px 0;
+	padding: 0px 0;
     
 }
 

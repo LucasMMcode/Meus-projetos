@@ -16,9 +16,9 @@ session_start();
     
     <body class="login">
         <div class="page">
-            <form method="POST" class="formLogin" action="codcadastro copy.php" onsubmit="return isvalid()">
-                <h1>Criar conta</h1>
-            <p>Digite os seus dados de acesso no campo abaixo.</p>
+            <form method="POST" class="formLogin" action="coddadospessoais.php" onsubmit="return isvalid()">
+                <h1>Dados pessoais</h1>
+            <p>Digite os seus dados Passoais para completar o cadastro.</p>
             <label for="nome">Nome</label>
             <input type="text" name="nome"placeholder="Digite seu Nome" autofocus="true" required/>
             <label for="sobrenome">Sobrenome</label>
@@ -33,7 +33,7 @@ session_start();
             </select>";}}
             ?>
             <br>
-            <input type="submit" name ="submit" value="Criar conta" class="btn" required/>
+            <input type="submit" name ="submit" value="Finalizar cadastro" class="btn" required/>
             <a href="login.php">Possui conta?</a>
         </form>
     </div>
