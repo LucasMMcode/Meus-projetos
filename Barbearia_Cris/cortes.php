@@ -7,32 +7,26 @@ include "includes/cabecalho.inc";
 <h1 class="titulo-principal" style="margin:0 0 0"> ESOLHA SEU CORTE</h1>
 
 <main>
-<form action="agendamento.php" id="barba"><input type="hidden" name="escolha" value="0"></form>
-<form action="agendamento.php" id="cabelo"><input type="hidden" name="escolha" value="1"></form>
-<form action="agendamento.php" id="cabelobarba"><input type="hidden" name="escolha" value="2"></form>
     <ul class="cortes">
-        
         <?php
                     if (isset($_SESSION['submit'])) {
-                        echo'<a href="agendamento.php" id="1item">';} else{ echo'<a href="" id="item1">';}?><li><form style="margin:0;">
+                        echo'<a href="agendamento.php?escolha=0" id="1item">';} else{ echo'<a href="" id="item1">';}?><li><form style="margin:0;">
                 <h2> Cabelo </h2>
                 <img src="img/cabelo.jpg" width=250px height=250px>
                 <p class="Descrição"> Na tesoura ou máquina, como o cliente preferir </p>
                 <p class="Preço"> R$ 30,00 </p></form>
             </li></a>
-        
         <?php
                     if (isset($_SESSION['submit'])) {
-                        echo'<a href="agendamento.php" id="2item">';} else{ echo'<a href="" id="item2">';}?><li><form style="margin:0;">
+                        echo'<a href="agendamento.php?escolha=1" id="2item">';} else{ echo'<a href="" id="item2">';}?><li><form style="margin:0;">
                 <h2> Barba </h2>
                 <img src="img/barba.jpg" width=250px height=250px>
                 <p class="Descrição"> Corte e desenhoo profisional de barba </p>
                 <p class="Preço"> R$ 20,00 </p></form>
             </li></a>
-        
         <?php
                     if (isset($_SESSION['submit'])) {
-                        echo'<a href="agendamento.php" id="3item">';} else{ echo'<a href="" id="item3">';}?><li><form style="margin:0;">
+                        echo'<a href="agendamento.php?escolha=2" id="3item">';} else{ echo'<a href="" id="item3">';}?><li><form style="margin:0;">
                 <h2> Cabelo + Barba </h2>
                 <img src="img/cabelo+barba.jpg" width=250px height=250px>
                 <p class="Descrição"> Pacote completo de cabelo e barba </p>
