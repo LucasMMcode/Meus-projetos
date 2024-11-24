@@ -1,5 +1,7 @@
 <?php
-session_start(); ?>
+session_start();
+include "conexao.php";
+include "includes/cabecalho.inc"; ?>
 <main>
         <table border="5px" class="agendamento">
             <tr>
@@ -19,8 +21,6 @@ session_start(); ?>
 
 <?php
 $dataAtual = date("Y-m-d");
-include "conexao.php";
-include "includes/cabecalho.inc";
 $sql = "SELECT * FROM agendamentos WHERE dia >= '$dataAtual' ORDER BY 'dia','hora'";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
@@ -30,12 +30,14 @@ if ($result->num_rows > 0) {
         <td>" . $row["nome"]. "</td> 
         <td>" . date("d/m/Y", strtotime($row["dia"])). "</td>
         <td>" . $row["hora"]. "</td>
-        <td>" . $row["descrição"]. "</td>
+        <td>" . $row["cortes"]. "</td>
         </tr>";
     }
 }
 else {
-    echo "0 resultados";
+    echo '<tr>
+        <td colspan="4">Nenhuma consulta marcada</td>
+        </tr>';
 }
 ?>
 </table>

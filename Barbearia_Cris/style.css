@@ -81,7 +81,7 @@ nav a:hover,.dropbtn:hover {
 .cortes {
 	width: 940px;
 	margin: 0px auto;
-	padding: 50px 0;
+	padding: 10px 0 50px 0;
 }
 
 .cortes li {
@@ -532,3 +532,8 @@ td, th {
     text-decoration: none;
     cursor: pointer;
   }
+
+.agendamento{
+    font-size: 20px;
+    margin: 2% 0% calc(2%) 38% ;
+}

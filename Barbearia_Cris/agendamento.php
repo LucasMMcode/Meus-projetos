@@ -1,8 +1,15 @@
 <?php
 session_start();
 include "conexao.php";
-include "includes/cabecalho.inc"
+include "includes/cabecalho.inc";
+
+$escolha=0;
+if (isset($_POST['submite'])) {
+    $escoha=$_POST["escolha"];
+
+}
 ?>
+
 
 <main>
         <form style="padding-left: 30px;" method="POST" action="codagendamento.php">
@@ -15,8 +22,14 @@ include "includes/cabecalho.inc"
                 <label for="telefone"> Telefone </label>
                 <input class="input-padrão" name="telefone" type="tel" id="telefone" required value="<?php echo $_SESSION['telefone']?>"> 
                 
-                <label for="mensagem"> Mensagem </label>
-                <input class="input-padrão" name="mensagen" id="mensagem" required> </input>
+                <label for="mensagem"> Tipo de corte </label>
+                <select name="corte" id="corte">
+                    <option value="Barba" <?php if($escolha == 0){echo 'selected';}?>>Barba R$30,00</option>
+                    <option value="Cabelo" <?php if($escolha == 1){echo 'selected';}?>>Cabelo R$20,00</option>
+                    <option value="Barba+Cabelo" <?php if($escolha == 2){echo 'selected';}?>>Barba+Cabelo R$50,00</option>
+                </select>
+                <br>
+                <br>
 
                 <fieldset>
                     <legend> Que dia e horário prefere ser atendido </legend>

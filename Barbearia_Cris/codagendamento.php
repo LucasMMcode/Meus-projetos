@@ -4,10 +4,10 @@ session_start();
     include('conexao.php');    
         if (isset($_POST['submit'])) {
             
-            $nome = $_POST['nome'];
-            $email = $_POST['email'];
-            $mensagem = $_POST['mensagen'];
-            $telefone = $_POST['telefone'];
+            $nome = $nome=$_SESSION['nome'] ." ". $_SESSION['sobrenome'] ;;
+            $email = $_SESSION['email'];
+            $corte = $_POST['corte'];
+            $telefone = $_SESSION['telefone'];
             $dia = $_POST['dia'];
             $horario = $_POST['horario'];
 
@@ -22,13 +22,13 @@ session_start();
             }
 
             $sql3 = "SELECT dia, hora from agendamentos where hora ='$horario' and dia = '$dia'";
-            echo $horario."<br>" . $dia."<br>".$nome."<br>".$email."<br>".$mensagem."<br>".$telefone;
+            echo $horario."<br>" . $dia."<br>".$nome."<br>".$email."<br>".$corte."<br>".$telefone;
             $result3 = mysqli_query($conn, $sql3);
             $row = mysqli_fetch_array($result3, MYSQLI_ASSOC);  
             $count = mysqli_num_rows($result3);
             if($count==0){
                 
-                $sql = "INSERT INTO agendamentos (telefone,idusuario, nome, descrição, dia, hora) VALUES (\"$telefone\",\"$idusuario\",\"$nome\",\"$mensagem\",\"$dia\",\"$horario\");";
+                $sql = "INSERT INTO agendamentos (telefone,idusuario, nome, corte, dia, hora) VALUES (\"$telefone\",\"$idusuario\",\"$nome\",\"$corte\",\"$dia\",\"$horario\");";
                 $result = mysqli_query($conn, $sql);
                     
                 echo'<script>
