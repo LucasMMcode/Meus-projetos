@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 23/11/2024 às 16:13
+-- Tempo de geração: 24/11/2024 às 20:10
 -- Versão do servidor: 8.0.17
 -- Versão do PHP: 8.2.12
 
@@ -34,16 +34,17 @@ CREATE TABLE `agendamentos` (
   `telefone` bigint(15) NOT NULL,
   `dia` date NOT NULL,
   `hora` time NOT NULL,
-  `descrição` text COLLATE utf8mb4_general_ci NOT NULL
+  `cortes` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Despejando dados para a tabela `agendamentos`
 --
 
-INSERT INTO `agendamentos` (`id`, `idusuario`, `nome`, `telefone`, `dia`, `hora`, `descrição`) VALUES
-(1, 1, 'Lucas Mitmann Magedanz', 54984005750, '2024-11-21', '11:00:00', 'corte de cabelo'),
-(2, 7, 'Cristiano Geiger', 54991898755, '2024-11-21', '10:30:00', 'corte de cabelo');
+INSERT INTO `agendamentos` (`id`, `idusuario`, `nome`, `telefone`, `dia`, `hora`, `cortes`) VALUES
+(1, 1, 'Lucas Mitmann Magedanz', 54984005750, '2024-11-21', '11:00:00', 'cabelo'),
+(2, 3, 'Cristiano Geiger', 54991898755, '2024-11-21', '10:30:00', 'cabelo'),
+(3, 4, 'Jaqueline Magedanz', 54984012144, '2024-11-23', '08:00:00', ' barba');
 
 -- --------------------------------------------------------
 
@@ -84,9 +85,8 @@ CREATE TABLE `cliente` (
 
 INSERT INTO `cliente` (`idcliente`, `idusuario`, `nome`, `sobrenome`, `telefone`) VALUES
 (1, 2, 'Isabelle', 'Milesi', 54996789571),
-(2, 3, 'a', 'a', 1),
-(3, 5, 'c', 'cc', 3),
-(4, 7, 'Cristiano', 'Geiger', 54991898755);
+(2, 3, 'Cristiano', 'Geiger', 54991898755),
+(3, 4, 'Jaqueline', 'Magedanz', 54984012144);
 
 -- --------------------------------------------------------
 
@@ -107,9 +107,7 @@ CREATE TABLE `funcionarios` (
 --
 
 INSERT INTO `funcionarios` (`idfuncionario`, `idusuario`, `nome`, `sobrenome`, `telefone`) VALUES
-(1, 1, 'Lucas', 'Mitmann Magedanz', 54984005750),
-(2, 4, 'b', 'b', 2),
-(3, 6, 'd', 'd', 4);
+(1, 1, 'Lucas', 'Mitmann Magedanz', 54984005750);
 
 -- --------------------------------------------------------
 
@@ -130,9 +128,9 @@ CREATE TABLE `produtos` (
 --
 
 INSERT INTO `produtos` (`IdProduto`, `Nome`, `Preco`, `Caminhoimg`, `Existe`) VALUES
-(1, 'Produtos', '11,22', 'produtos.png', 0),
-(2, 'shampoo cevada', '22,22', 'shampoocevadagold.png', 0),
-(3, 'shampoo qod', '33,33', 'shampoqod.png', 0);
+(1, 'Produtos', '22,22', 'produtos.png', 1),
+(2, 'Shampoo Cevada', '44,44', 'shampoocevadagold.png', 1),
+(3, 'Shampoo QOD', '66,66', 'shampoqod.png', 1);
 
 -- --------------------------------------------------------
 
@@ -154,11 +152,8 @@ CREATE TABLE `usuario` (
 INSERT INTO `usuario` (`idusuario`, `idcategoria`, `email`, `senha`) VALUES
 (1, 1, 'lucas.m.magedanz@gmail.com', 'Lucas01lo'),
 (2, 2, 'bellepmilesi@gmail.com', 'SempreDigo112'),
-(3, 2, 'a@a', 'a'),
-(4, 1, 'b@b', 'b'),
-(5, 2, 'c@c', 'c'),
-(6, 1, 'd@d', 'd'),
-(7, 2, 'crisgeiger@gmail.com', 'barbearia');
+(3, 2, 'crisgeiger@gmail.com', 'barbearia'),
+(4, 2, 'jaqueline.magedanz@gmail.com', '2605');
 
 --
 -- Índices para tabelas despejadas
@@ -212,31 +207,31 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de tabela `agendamentos`
 --
 ALTER TABLE `agendamentos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `idcliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `idcliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `funcionarios`
 --
 ALTER TABLE `funcionarios`
-  MODIFY `idfuncionario` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idfuncionario` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de tabela `produtos`
 --
 ALTER TABLE `produtos`
-  MODIFY `IdProduto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `IdProduto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `idusuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `idusuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Restrições para tabelas despejadas
