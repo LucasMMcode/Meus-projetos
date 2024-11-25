@@ -105,8 +105,8 @@ nav a:hover,.dropbtn:hover {
 
 .cortes li:hover h2 {
     font-size: 32px;
+    
 }
-
 .cortes h2 {
     color: #000000;
 	font-size: 30px;
@@ -498,7 +498,7 @@ td, th {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
-    padding-top: 200px; /* Location of the box */
+    padding-top: 140px; /* Location of the box */
     left: 0;
     top: 0;
     width: 100%; /* Full width */

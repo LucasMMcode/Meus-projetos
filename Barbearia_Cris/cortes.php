@@ -5,6 +5,7 @@ include "includes/cabecalho.inc";
 ?>
 
 <h1 class="titulo-principal" style="margin:0 0 0"> ESOLHA SEU CORTE</h1>
+<h2 style="display:flex; justify-content: center; font-size:20px;">Pagamento no local após o corte aceitamos dinheiro e pix.</h2>
 
 <main>
     <ul class="cortes">

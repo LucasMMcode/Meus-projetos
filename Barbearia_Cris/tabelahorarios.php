@@ -3,7 +3,7 @@ session_start();
 include "conexao.php";
 include "includes/cabecalho.inc"; ?>
 <main>
-        <table border="5px" class="agendamento">
+        <table border="5px" style="display:flex; justify-content: center;">
             <tr>
                 <td>
                     Nome

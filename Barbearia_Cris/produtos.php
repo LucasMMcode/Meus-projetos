@@ -6,6 +6,7 @@ include "includes/cabecalho.inc"
 
         
         <main class="areaprodutos">
+        <h1 style="display:flex; justify-content: center; font-size:20px;">Produtos apenas para vizualização venda no local</h1>
         <?php
         if (isset($_POST['submite'])) {
           $nome=$_POST["nomep"];

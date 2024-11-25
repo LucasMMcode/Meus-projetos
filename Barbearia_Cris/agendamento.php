@@ -5,6 +5,10 @@ include "includes/cabecalho.inc";
 
 $escolha=0;
     $escolha=$_GET["escolha"];
+    $dataAtual = date("Y-m-d");
+    $qtdDias = 1;
+    $resultado = date('Y-m-d', strtotime("+{$qtdDias} days",strtotime($dataAtual)));
+    echo $resultado;
 
 ?>
 
@@ -31,7 +35,7 @@ $escolha=0;
 
                 <fieldset>
                     <legend> Que dia e horário prefere ser atendido </legend>
-                    <input type="date" name="dia" id="dia">
+                    <input type="date" name="dia" id="dia" min="<?php echo $resultado?>">
                     <script>
                     const picker = document.getElementById('dia');
                     picker.addEventListener('input', function(e){
