@@ -7,8 +7,7 @@ $escolha=0;
     $escolha=$_GET["escolha"];
     $dataAtual = date("Y-m-d");
     $qtdDias = 1;
-    $resultado = date('Y-m-d', strtotime("+{$qtdDias} days",strtotime($dataAtual)));
-    echo $resultado;
+    $resultado = date('Y-m-d', strtotime("+{$qtdDias} days",strtotime($dataAtual)))
 
 ?>
 
