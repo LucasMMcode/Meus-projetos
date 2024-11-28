@@ -1,7 +1,7 @@
 <?php
 session_start();
-    include("conexao.php");
-    ?>
+include('conexao.php');
+include "includes/cabecalho.inc";?>
 
 <html lang="pt-br" >
     <head>

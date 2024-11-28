@@ -1,3 +1,8 @@
+<?php
+session_start();
+include('conexao.php');
+include "includes/cabecalho.inc";?>
+
 <html lang="pt-br" >
     <head>
         <meta charset="UTF-8">
@@ -10,8 +15,6 @@
     <body class="login">
         <div class="page">
 <?php
-session_start();
-    include('conexao.php');
     if (isset($_POST['submit'])) {
         $email = $_POST['email'];
         $senha = $_POST['senha'];

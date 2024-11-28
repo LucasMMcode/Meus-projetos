@@ -12,7 +12,7 @@ include "includes/cabecalho.inc"
                     <label for="preco"> Preço (use XX,XX)</label>
                     <input class="input-padrão" name="preco" type="text" id="preco" required>
                     
-                    <label for="imagem"> Imagem (use arquivos .png)</label>
+                    <label for="imagem"> Imagem (use imagens quadradas .png)</label>
                     <input class="input-padrão" name="imagem" type="file" id="imagem" required> 
                     
                     <label for="nomearquivo"> Nome do arquivo (use o nome a cima)</label>
